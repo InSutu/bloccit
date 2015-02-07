@@ -2,6 +2,8 @@
 
 ### Made with my mentor at [Bloc](http://bloc.io).
 
+### Heroku deployment:  https://insutu-bloccit.herokuapp.com/
+
 == README
 
 This README would normally document whatever steps are necessary to get the
