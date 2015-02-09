@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :development do  #Installs the entity relationship diagram needed to support graphviz
+  gem 'rails-erd'
+end
+
 group :production do
    gem 'pg'
    gem 'rails_12factor'
