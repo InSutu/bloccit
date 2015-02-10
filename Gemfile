@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :development do  #Installs the entity relationship diagram needed to support graphviz
-  gem 'rails-erd', github: 'ready4god2513/rails-erd', branch: 'rails-4.2-support-fix'
+  gem 'rails-erd'#, github: 'ready4god2513/rails-erd', branch: 'rails-4.2-support-fix'
 end
 
 group :production do
