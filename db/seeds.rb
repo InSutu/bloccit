@@ -4,7 +4,7 @@ require 'faker'
 
 50.times do 
   Post.create!(
-    title:  Faker::Lorem.sentence,
+    title:  Faker::Lorem.sentence, #creates the test data
     body:   Faker::Lorem.paragraph
     )
 end
