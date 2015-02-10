@@ -13,6 +13,8 @@ group :production do
    gem 'sqlite3'
  end
 
+gem 'faker'
+
 gem 'bootstrap-sass' #added 7FEB15 9:12AM for CSS checkpoint assignment
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
