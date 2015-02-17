@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   #get 'posts/index' Remove per CRUD checkopoint
   #get 'posts/show'
   #get 'posts/new'

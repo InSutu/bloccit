@@ -13,6 +13,7 @@ group :production do
    gem 'sqlite3'
  end
 
+gem 'devise'
 gem 'faker'
 
 gem 'bootstrap-sass' #added 7FEB15 9:12AM for CSS checkpoint assignment
