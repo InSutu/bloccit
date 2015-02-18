@@ -16,6 +16,7 @@ group :production do
 gem 'devise'
 gem 'faker'
 gem 'figaro', '1.0'
+gem 'pundit'
 gem 'bootstrap-sass' #added 7FEB15 9:12AM for CSS checkpoint assignment
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
