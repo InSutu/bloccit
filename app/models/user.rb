@@ -14,5 +14,4 @@ class User < ActiveRecord::Base
    role == 'moderator'
  end
 
-  
 end
