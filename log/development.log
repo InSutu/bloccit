@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 Started GET "/" for ::1 at 2015-02-20 05:38:44 -0800
@@ -11,6 +12,925 @@ Migrations are pending. To resolve this issue, run:
 ):
   activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
   activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+=======
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePosts (20150209012309)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150209012309"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateComments (20150209012556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150209012556"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20150217012820)
+  [1m[35m (0.0ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/dpauli/code/bloccit/db/migrate/20150217012820_devise_create_users.rb:37)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150217012820"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to AddUserToPosts (20150218125814)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "posts" ADD "user_id" integer
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150218125814"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddRoleToUsers (20150218195453)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150218195453"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTopics (20150220135848)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150220135848"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTopicToPosts (20150220141217)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "posts" ADD "topic_id" integer[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150220141217"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer) 
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220141217')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012309')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012556')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150217012820')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218125814')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218195453')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220135848')
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220141217')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012309')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012556')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150217012820')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218125814')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218195453')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220135848')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'treva@kuphal.name' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Mrs. Daron Parker"], ["email", "treva@kuphal.name"], ["encrypted_password", "$2a$10$gQcyT6Z.yH8/DebWrEhSKeKmcl/GgsQgo9B06ZtBCPjfpf5lNk64G"], ["confirmed_at", "2015-02-20 14:17:11.438687"], ["created_at", "2015-02-20 14:17:11.449242"], ["updated_at", "2015-02-20 14:17:11.449242"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lauretta@pagacmante.org' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Wilford Steuber"], ["email", "lauretta@pagacmante.org"], ["encrypted_password", "$2a$10$fBHV5TJXOPUdct.WnteibOSuhbVRHzxYi/pUCvaKIzshywcJ8tH5i"], ["confirmed_at", "2015-02-20 14:17:11.509093"], ["created_at", "2015-02-20 14:17:11.510641"], ["updated_at", "2015-02-20 14:17:11.510641"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'margaretta@metzjones.name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Mr. Daron Boehm"], ["email", "margaretta@metzjones.name"], ["encrypted_password", "$2a$10$vvJ.NpNmEqg6urO/b0.hXupxDPy6h.C/fnGbtxi8kygDigazYbBke"], ["confirmed_at", "2015-02-20 14:17:11.569102"], ["created_at", "2015-02-20 14:17:11.570453"], ["updated_at", "2015-02-20 14:17:11.570453"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'aiyana@zulauf.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Gerardo Weissnat"], ["email", "aiyana@zulauf.biz"], ["encrypted_password", "$2a$10$WoKdHjKC7pMj.QFiykCLHutMMw8iwVnEWUCdDWF/pg6amZRWxYUOy"], ["confirmed_at", "2015-02-20 14:17:11.628062"], ["created_at", "2015-02-20 14:17:11.629279"], ["updated_at", "2015-02-20 14:17:11.629279"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lonie@trantow.biz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Hannah Spinka"], ["email", "lonie@trantow.biz"], ["encrypted_password", "$2a$10$TfAwvPdByby/ZxEraxrk6uyHamIJYk1CR8lGLN0xmXUMW75NWkuBC"], ["confirmed_at", "2015-02-20 14:17:11.686644"], ["created_at", "2015-02-20 14:17:11.687850"], ["updated_at", "2015-02-20 14:17:11.687850"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Quo sunt neque officiis eligendi et modi incidunt voluptatibus."], ["description", "Perferendis qui minus doloremque maxime voluptas. At saepe et eligendi dolores id. Repellendus beatae ratione illo perspiciatis voluptas. Nulla ex maiores et ipsa nam."], ["created_at", "2015-02-20 14:17:11.696939"], ["updated_at", "2015-02-20 14:17:11.696939"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Nemo quia voluptatem alias quibusdam commodi voluptas."], ["description", "Incidunt et accusamus sequi. Quis sunt et. Consequatur consequuntur architecto molestias nihil doloribus et aliquid."], ["created_at", "2015-02-20 14:17:11.699481"], ["updated_at", "2015-02-20 14:17:11.699481"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Doloribus eveniet magni velit."], ["description", "Incidunt est itaque. Est qui consequatur eos nesciunt atque. Maiores quaerat consequuntur iste. Fugiat quia dolor harum. Quam veniam ea."], ["created_at", "2015-02-20 14:17:11.701470"], ["updated_at", "2015-02-20 14:17:11.701470"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Repellendus placeat dolor autem aut reprehenderit ab."], ["description", "Explicabo deleniti excepturi delectus earum pariatur. Dignissimos dolorem laboriosam placeat eaque autem. Repellat enim voluptas accusamus."], ["created_at", "2015-02-20 14:17:11.703366"], ["updated_at", "2015-02-20 14:17:11.703366"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Illum qui exercitationem odit est quo aut."], ["description", "Quis ex suscipit soluta accusantium. Est natus porro eveniet maiores voluptatum officia. Dolores qui laudantium occaecati ut. Velit qui accusantium et suscipit est."], ["created_at", "2015-02-20 14:17:11.705370"], ["updated_at", "2015-02-20 14:17:11.705370"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Iusto sint non modi omnis eum dolores dolorem."], ["description", "Doloremque nesciunt dolorem aut est facere veritatis in. Sed neque odio. Ut quas qui et quis et. Voluptate voluptas saepe tempora reiciendis in natus. Similique deserunt ut."], ["created_at", "2015-02-20 14:17:11.707429"], ["updated_at", "2015-02-20 14:17:11.707429"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Numquam reiciendis doloribus et error."], ["description", "Repudiandae in voluptates fugit eos tempora. Quam aperiam aut omnis dolor sed. Sed autem hic unde ex corrupti sit consequatur."], ["created_at", "2015-02-20 14:17:11.709482"], ["updated_at", "2015-02-20 14:17:11.709482"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Accusantium aspernatur dolorem eum non numquam quia."], ["description", "Est eligendi voluptatibus inventore. Velit et tenetur est aut quia repellendus quia. Iusto sint ullam reiciendis. Nihil reprehenderit ut voluptates veritatis nulla officia quae. Non at et."], ["created_at", "2015-02-20 14:17:11.711951"], ["updated_at", "2015-02-20 14:17:11.711951"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Labore laudantium tempora optio aliquid debitis accusamus."], ["description", "Quisquam odio veniam reprehenderit. Assumenda et odit excepturi in distinctio veritatis. Vel in sunt optio ullam ex tempore."], ["created_at", "2015-02-20 14:17:11.713950"], ["updated_at", "2015-02-20 14:17:11.713950"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Aut magni nesciunt a ad unde asperiores sit quo."], ["description", "Magni repellendus inventore aut id harum minus est. Natus voluptatem atque. Excepturi blanditiis eos ipsum est. Repellat vitae odio eos eveniet quibusdam."], ["created_at", "2015-02-20 14:17:11.715926"], ["updated_at", "2015-02-20 14:17:11.715926"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Aut dolor veritatis quod voluptas."], ["description", "Neque et labore aut qui officiis suscipit. Facilis quia est repellendus. Dolores eius esse. Reprehenderit maxime non facilis atque non temporibus. Dicta quo qui consequatur et."], ["created_at", "2015-02-20 14:17:11.717847"], ["updated_at", "2015-02-20 14:17:11.717847"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Earum temporibus adipisci quia ea eaque nam."], ["description", "Sunt voluptate nisi non eaque optio perferendis ut. Aperiam nulla corporis sapiente at. Deserunt voluptatem et ratione reiciendis. Incidunt quia enim. Accusamus exercitationem fuga quas ullam autem quasi."], ["created_at", "2015-02-20 14:17:11.720388"], ["updated_at", "2015-02-20 14:17:11.720388"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sapiente saepe et neque magnam sequi quas et."], ["description", "Mollitia ea alias repellat. Ea architecto voluptatem id. Dolorem quia est ullam velit. Adipisci sit sed ratione est odio officia. Sint perferendis quo et amet aliquam facilis ad."], ["created_at", "2015-02-20 14:17:11.722568"], ["updated_at", "2015-02-20 14:17:11.722568"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Minus enim quo error voluptas architecto aut in corporis."], ["description", "Est aut distinctio. In eligendi dicta. Est nostrum ut magnam laborum."], ["created_at", "2015-02-20 14:17:11.724535"], ["updated_at", "2015-02-20 14:17:11.724535"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Optio tempore dolorum at inventore."], ["description", "Occaecati hic quae autem ipsum omnis. Molestiae odit sunt harum veniam itaque doloremque aperiam. Autem occaecati doloribus dolor rerum."], ["created_at", "2015-02-20 14:17:11.726404"], ["updated_at", "2015-02-20 14:17:11.726404"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 14], ["title", "Ut qui cum optio nemo."], ["body", "Iusto molestiae tempore voluptatem eveniet voluptatem. Veritatis saepe repudiandae est. Eligendi ipsam aut assumenda suscipit."], ["created_at", "2015-02-20 14:17:11.745440"], ["updated_at", "2015-02-20 14:17:11.745440"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 3], ["title", "Possimus harum autem soluta voluptatum."], ["body", "Distinctio facilis possimus impedit. Beatae amet ipsa dolor qui doloribus. Ullam voluptates ut aut in similique neque repellendus."], ["created_at", "2015-02-20 14:17:11.749498"], ["updated_at", "2015-02-20 14:17:11.749498"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["topic_id", 10], ["title", "Et tempora alias rerum maiores praesentium et enim."], ["body", "Saepe laboriosam autem perferendis. Enim voluptate rem at hic similique ratione sunt. Repudiandae quibusdam ut dolor quia impedit."], ["created_at", "2015-02-20 14:17:11.752661"], ["updated_at", "2015-02-20 14:17:11.752661"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["topic_id", 3], ["title", "Fugiat voluptates est ut molestiae qui reiciendis eos facilis."], ["body", "Ut explicabo rerum. Et provident repellat magnam consequatur molestiae. Magni quas nostrum voluptas mollitia ut et."], ["created_at", "2015-02-20 14:17:11.755317"], ["updated_at", "2015-02-20 14:17:11.755317"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 3], ["title", "Veniam quia ea fuga et est molestias."], ["body", "Aspernatur autem quis quam qui et vel. Qui soluta suscipit. Tempore vero sint similique maiores veritatis rerum assumenda."], ["created_at", "2015-02-20 14:17:11.758595"], ["updated_at", "2015-02-20 14:17:11.758595"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 7], ["title", "Quae pariatur aut aperiam nihil voluptates."], ["body", "Tempora praesentium accusantium excepturi quo. Qui rem quia cum dolore neque. Et ipsa maxime omnis. Consequatur deleniti nulla ipsa voluptate. Ut adipisci quasi corrupti dolores ratione."], ["created_at", "2015-02-20 14:17:11.761741"], ["updated_at", "2015-02-20 14:17:11.761741"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 14], ["title", "Recusandae non sed voluptas ducimus veritatis quia quasi consequatur."], ["body", "Odio sint voluptate eos id. Non qui eveniet optio. Ut nihil molestiae ducimus quis exercitationem aut maxime. Totam voluptatem dolorem quia vero odio molestiae dicta."], ["created_at", "2015-02-20 14:17:11.764997"], ["updated_at", "2015-02-20 14:17:11.764997"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["topic_id", 15], ["title", "Quaerat non ipsum impedit deserunt ut quasi at esse."], ["body", "Voluptatem non debitis sunt iure distinctio. Blanditiis ut ratione. Molestiae ut nihil impedit dicta laudantium quia."], ["created_at", "2015-02-20 14:17:11.768004"], ["updated_at", "2015-02-20 14:17:11.768004"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["topic_id", 9], ["title", "Repellat molestiae iste sed vero est id sit vel."], ["body", "Sunt nulla ea est esse sapiente consectetur ipsum. Fugiat sapiente in reiciendis provident fugit repellat odit. Harum architecto ea aliquam dolores soluta. Consequuntur perferendis voluptas. Repudiandae consequatur tenetur assumenda laboriosam et ullam."], ["created_at", "2015-02-20 14:17:11.803234"], ["updated_at", "2015-02-20 14:17:11.803234"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 4], ["title", "Quam aut facere quia libero."], ["body", "Praesentium quos in libero velit exercitationem. Ab qui ducimus. Officia est deleniti voluptatum."], ["created_at", "2015-02-20 14:17:11.806571"], ["updated_at", "2015-02-20 14:17:11.806571"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 2], ["topic_id", 1], ["title", "Et quo fugiat nemo et velit eius delectus."], ["body", "Quasi tenetur quidem vel totam provident consequatur. Consequatur tenetur occaecati. Et illo quas earum nihil nesciunt quibusdam est. Porro ullam est sunt. Animi doloremque aspernatur eligendi."], ["created_at", "2015-02-20 14:17:11.809111"], ["updated_at", "2015-02-20 14:17:11.809111"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 1], ["title", "Facilis corporis nulla tempora libero."], ["body", "Aperiam maxime amet. Repellendus mollitia nihil et nam labore ut quas. Id laboriosam explicabo debitis minima."], ["created_at", "2015-02-20 14:17:11.812004"], ["updated_at", "2015-02-20 14:17:11.812004"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 5], ["topic_id", 1], ["title", "Sequi est cum in non molestiae."], ["body", "Sit quos voluptas voluptatem quaerat dolorem. Eligendi omnis autem est. Quam minima neque autem et iusto."], ["created_at", "2015-02-20 14:17:11.814661"], ["updated_at", "2015-02-20 14:17:11.814661"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 7], ["title", "Qui dolorem ducimus perspiciatis ipsam repellat quidem iure."], ["body", "Velit explicabo nam dolores facere magnam doloremque. Ut enim aliquid sapiente magni ea aspernatur et. Atque nulla quae provident libero. Totam ut sit dolor fuga magni."], ["created_at", "2015-02-20 14:17:11.817493"], ["updated_at", "2015-02-20 14:17:11.817493"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 5], ["topic_id", 14], ["title", "Quo ut et sed optio quia."], ["body", "In laudantium et ut dolorem rerum. Tempora distinctio aut dignissimos. Totam quo consequuntur voluptates sit maxime nesciunt. Architecto ea impedit adipisci placeat. Aut nam sit."], ["created_at", "2015-02-20 14:17:11.820296"], ["updated_at", "2015-02-20 14:17:11.820296"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["topic_id", 8], ["title", "Nam in recusandae tempora tenetur dolores ut veniam."], ["body", "Quidem distinctio tempora corporis repellat rerum ut ut. Voluptates eos odit maiores voluptatum laudantium omnis. Dolorem eaque perferendis est quis facilis dolores."], ["created_at", "2015-02-20 14:17:11.822901"], ["updated_at", "2015-02-20 14:17:11.822901"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 9], ["title", "Et architecto delectus ratione."], ["body", "Commodi laborum unde vel qui. Odit consequatur eaque officia et doloremque. Eos laudantium esse est et. Tempora corrupti explicabo molestiae deleniti dignissimos."], ["created_at", "2015-02-20 14:17:11.825425"], ["updated_at", "2015-02-20 14:17:11.825425"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 12], ["title", "Autem sed sed voluptatibus."], ["body", "Cum explicabo voluptatem ducimus. Et quo veniam sint voluptate dolorum dolores. Hic cupiditate ut fugit."], ["created_at", "2015-02-20 14:17:11.828067"], ["updated_at", "2015-02-20 14:17:11.828067"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["topic_id", 6], ["title", "Similique consequatur quia aut maxime quaerat."], ["body", "Odio perspiciatis voluptatem ab. Molestiae quaerat assumenda vel omnis. Alias consequuntur dolorem. Consequatur sequi fuga natus sapiente harum."], ["created_at", "2015-02-20 14:17:11.830623"], ["updated_at", "2015-02-20 14:17:11.830623"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 2], ["title", "Non quia est aliquid et."], ["body", "Facilis cupiditate aspernatur ipsam consequuntur vel ducimus. Quia explicabo vitae repudiandae libero a minima facilis. Ut totam eius nostrum non sint explicabo et. Aut cumque odio harum totam repudiandae ut explicabo."], ["created_at", "2015-02-20 14:17:11.833232"], ["updated_at", "2015-02-20 14:17:11.833232"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 9], ["title", "Rem corporis vel quibusdam magnam dicta."], ["body", "Animi sint aut quia possimus aut. Illo hic et voluptates omnis ipsum est eveniet. Voluptatem laboriosam atque."], ["created_at", "2015-02-20 14:17:11.839183"], ["updated_at", "2015-02-20 14:17:11.839183"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 10], ["title", "Expedita nemo eius adipisci dicta officiis accusantium quia."], ["body", "Qui quod non ipsum placeat eos in. Qui quam vel qui beatae. Adipisci omnis occaecati quas praesentium."], ["created_at", "2015-02-20 14:17:11.844390"], ["updated_at", "2015-02-20 14:17:11.844390"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["topic_id", 10], ["title", "Ipsam deleniti laboriosam ea doloremque excepturi veniam."], ["body", "Nemo ut atque temporibus reiciendis molestiae. Nostrum maiores sed facere doloremque autem quis aliquam. Et similique earum sunt eius et eaque. Ipsam dolorum et soluta ut quia dolores explicabo. Sit quisquam eius officia voluptas illum rerum."], ["created_at", "2015-02-20 14:17:11.849751"], ["updated_at", "2015-02-20 14:17:11.849751"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["topic_id", 2], ["title", "Sapiente modi voluptatibus rerum et recusandae."], ["body", "Perferendis laborum eius facere omnis. Modi est omnis sed. Recusandae accusamus assumenda ullam. Eveniet fuga voluptates saepe recusandae sed velit."], ["created_at", "2015-02-20 14:17:11.856713"], ["updated_at", "2015-02-20 14:17:11.856713"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 5], ["topic_id", 13], ["title", "Et error a repellat voluptatibus in aliquam."], ["body", "Tempore aut eum ad doloremque excepturi ut. Id rerum sequi est corrupti adipisci nulla. At fuga quia et non. Sed quaerat quo porro."], ["created_at", "2015-02-20 14:17:11.861982"], ["updated_at", "2015-02-20 14:17:11.861982"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 2], ["title", "Et quae voluptas explicabo ratione asperiores eum."], ["body", "Voluptatem labore eos harum consequatur et. Quaerat eligendi illo quia ad optio placeat veniam. Magni et consectetur minima dolor. Suscipit excepturi et ut inventore sit modi. Laboriosam eum impedit ducimus aut amet aliquam."], ["created_at", "2015-02-20 14:17:11.867079"], ["updated_at", "2015-02-20 14:17:11.867079"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["topic_id", 9], ["title", "Quia optio et repellat velit non veritatis tempora."], ["body", "Nisi laboriosam numquam voluptatem aliquid. Odit corporis veritatis accusantium eum sunt enim. Adipisci sit voluptatem. Optio quo aliquid sed."], ["created_at", "2015-02-20 14:17:11.871965"], ["updated_at", "2015-02-20 14:17:11.871965"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["topic_id", 10], ["title", "Ad quia minima rerum quis quo dolor quo est."], ["body", "Dolor quisquam ab dolorem error soluta ut qui. Exercitationem voluptas dicta sint quasi omnis. Nobis explicabo officiis temporibus voluptas perspiciatis ipsum eos. Expedita temporibus fuga. Vero esse vitae dolor."], ["created_at", "2015-02-20 14:17:11.876734"], ["updated_at", "2015-02-20 14:17:11.876734"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["topic_id", 3], ["title", "Doloremque ratione enim adipisci quod quis aut sed voluptatem."], ["body", "Dolorem nisi nostrum distinctio. Quibusdam sed qui. Unde et fugit. Saepe consequatur totam qui culpa labore sunt. Pariatur perferendis et possimus quod totam."], ["created_at", "2015-02-20 14:17:11.880677"], ["updated_at", "2015-02-20 14:17:11.880677"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["topic_id", 11], ["title", "Modi facere et quos deserunt omnis perferendis quibusdam necessitatibus."], ["body", "Sed similique non et. Quidem commodi dignissimos blanditiis quo voluptas. Vel at doloremque quam. Esse et nemo est aut."], ["created_at", "2015-02-20 14:17:11.884730"], ["updated_at", "2015-02-20 14:17:11.884730"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["topic_id", 1], ["title", "Vel repudiandae neque quis illo beatae porro."], ["body", "Sed quisquam dignissimos sed aut autem. Corrupti ut dolores vero sunt voluptatum praesentium. Molestiae quo eos deleniti cum."], ["created_at", "2015-02-20 14:17:11.888435"], ["updated_at", "2015-02-20 14:17:11.888435"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["topic_id", 4], ["title", "Et ad sed ipsa est doloribus consectetur adipisci saepe."], ["body", "Est quo dolor eaque. Rem quas qui. Unde et fugit nihil aperiam voluptatem et. Ipsa inventore dolores magni dignissimos facere aut qui. Quod nihil id veniam aut qui."], ["created_at", "2015-02-20 14:17:11.891194"], ["updated_at", "2015-02-20 14:17:11.891194"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 5], ["topic_id", 6], ["title", "Dignissimos laboriosam vero sapiente aperiam totam iste consequatur aut."], ["body", "Laborum quisquam doloremque iste. Quia tenetur expedita autem consequatur quisquam illo. Unde quasi nesciunt."], ["created_at", "2015-02-20 14:17:11.893940"], ["updated_at", "2015-02-20 14:17:11.893940"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["topic_id", 10], ["title", "Ab molestias repellat sed quidem omnis et."], ["body", "Placeat autem saepe qui. Consequuntur expedita nesciunt magni dolorem cum eligendi. Id a vel deserunt sed deleniti hic. Dolores molestias repudiandae."], ["created_at", "2015-02-20 14:17:11.896636"], ["updated_at", "2015-02-20 14:17:11.896636"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 6], ["title", "Porro est minus aut nostrum omnis deleniti quo voluptas."], ["body", "Nisi ea dolores quod accusantium nemo laudantium autem. Porro rem culpa consequuntur dolorum in. Eum fugiat dolores consequatur pariatur."], ["created_at", "2015-02-20 14:17:11.899300"], ["updated_at", "2015-02-20 14:17:11.899300"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 12], ["title", "Asperiores nobis enim qui."], ["body", "Eius voluptas qui eos voluptate assumenda. Harum magnam et facere. Sint eveniet provident veniam praesentium qui."], ["created_at", "2015-02-20 14:17:11.901876"], ["updated_at", "2015-02-20 14:17:11.901876"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 5], ["title", "Atque esse magnam qui maiores error."], ["body", "Incidunt aut quo accusamus. Non illum consequuntur exercitationem pariatur odit. Ipsa placeat aut et occaecati illum. Non culpa quia quas vel aspernatur repudiandae et."], ["created_at", "2015-02-20 14:17:11.904398"], ["updated_at", "2015-02-20 14:17:11.904398"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 2], ["title", "Ipsum iure fugiat consequuntur."], ["body", "Dolorum atque consequatur labore sit rerum. Repudiandae minima dolorem mollitia. Ipsam deserunt itaque in accusantium totam dicta. Enim perspiciatis cum quo fugit."], ["created_at", "2015-02-20 14:17:11.907053"], ["updated_at", "2015-02-20 14:17:11.907053"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["topic_id", 9], ["title", "Cumque ea dicta ad voluptatibus quia sunt aut sit."], ["body", "Nobis maiores ad cumque. Reprehenderit delectus rem. Omnis et praesentium aut. Laboriosam non numquam rerum dolorem incidunt dolore."], ["created_at", "2015-02-20 14:17:11.909864"], ["updated_at", "2015-02-20 14:17:11.909864"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 1], ["title", "Facere dolores quibusdam vero."], ["body", "Porro reprehenderit id ullam eos. Et commodi accusamus velit provident omnis optio unde. Quo libero et reprehenderit eveniet voluptatem dicta et. Fugit aut eos laboriosam."], ["created_at", "2015-02-20 14:17:11.912375"], ["updated_at", "2015-02-20 14:17:11.912375"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 2], ["topic_id", 12], ["title", "Et et et nulla laboriosam voluptas."], ["body", "Aut et commodi reprehenderit debitis in. Rerum repudiandae iusto quia doloremque. Nihil aperiam repellat dolores rerum ea animi quod. Laborum magnam porro numquam. Fuga nisi iure quae qui tenetur deserunt."], ["created_at", "2015-02-20 14:17:11.915044"], ["updated_at", "2015-02-20 14:17:11.915044"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 5], ["title", "Doloribus expedita quam omnis maiores debitis et quaerat."], ["body", "Sed et ut sit fuga excepturi. Maxime dolorum omnis vel. Quia est pariatur aut consequuntur voluptas illo eveniet. Omnis fugit quas et iusto non. Quae illum odio libero sed aut ipsum."], ["created_at", "2015-02-20 14:17:11.918117"], ["updated_at", "2015-02-20 14:17:11.918117"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["topic_id", 7], ["title", "Est excepturi dicta quo magni pariatur et."], ["body", "Repudiandae repellendus ab sapiente. Cupiditate exercitationem est ut. Animi qui vero enim voluptatem. Voluptas blanditiis culpa et voluptates facilis laudantium quia. Ut odit sequi eum rerum et atque et."], ["created_at", "2015-02-20 14:17:11.920653"], ["updated_at", "2015-02-20 14:17:11.920653"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["topic_id", 13], ["title", "Id autem voluptatem vel inventore ut non qui."], ["body", "Voluptatum sunt iste cupiditate a itaque est aliquam. Alias quia rerum enim magni. Exercitationem qui qui ut maiores deserunt quia consectetur. Necessitatibus veniam esse."], ["created_at", "2015-02-20 14:17:11.923660"], ["updated_at", "2015-02-20 14:17:11.923660"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 1], ["title", "Exercitationem rerum aperiam asperiores et et necessitatibus rem et."], ["body", "Aut odio aut non distinctio ut et. Qui eos vitae et ut animi. Provident similique incidunt."], ["created_at", "2015-02-20 14:17:11.926947"], ["updated_at", "2015-02-20 14:17:11.926947"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["topic_id", 15], ["title", "A sunt officiis est est et."], ["body", "Beatae placeat natus nam blanditiis officia velit dicta. Est et qui soluta impedit. Velit harum at maiores nulla optio nisi."], ["created_at", "2015-02-20 14:17:11.929857"], ["updated_at", "2015-02-20 14:17:11.929857"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 5], ["topic_id", 15], ["title", "Velit et autem animi quo praesentium."], ["body", "Fuga sunt incidunt illum cum repudiandae dolores tempore. Esse molestiae sint eum dignissimos animi ad. Aperiam ipsam nostrum asperiores voluptatem deserunt."], ["created_at", "2015-02-20 14:17:11.933105"], ["updated_at", "2015-02-20 14:17:11.933105"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["topic_id", 2], ["title", "Et aut non qui occaecati enim sint dignissimos."], ["body", "Occaecati et adipisci. Quaerat facere dolores molestiae autem cumque ut officia. Possimus sed id magnam qui. Quia voluptates quibusdam repudiandae dolor consequatur."], ["created_at", "2015-02-20 14:17:11.936744"], ["updated_at", "2015-02-20 14:17:11.936744"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["topic_id", 6], ["title", "Voluptate aut corporis ex tempore expedita est in."], ["body", "Omnis nemo autem quia porro. Labore nam hic. Eaque voluptate deleniti a dolor et mollitia. Officiis quasi omnis iure consequatur saepe aut."], ["created_at", "2015-02-20 14:17:11.939633"], ["updated_at", "2015-02-20 14:17:11.939633"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["topic_id", 8], ["title", "Eum qui enim enim distinctio consequatur voluptatem laudantium repudiandae."], ["body", "Quia possimus autem. Inventore rem at ut. Sed suscipit consequatur accusantium. Et animi a voluptates distinctio. Eius voluptas molestias ex esse tempora."], ["created_at", "2015-02-20 14:17:11.942420"], ["updated_at", "2015-02-20 14:17:11.942420"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"  ORDER BY created_at DESC[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 1], ["body", "Dolores est similique consequatur. Et voluptatem rem rerum soluta. Pariatur autem aliquam impedit iusto nobis."], ["created_at", "2015-02-20 14:17:11.951723"], ["updated_at", "2015-02-20 14:17:11.951723"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 10], ["body", "Officiis praesentium ut repellendus aspernatur dolor. Omnis provident autem sint consequatur eius. Unde porro quo iure ea deserunt fuga."], ["created_at", "2015-02-20 14:17:11.955085"], ["updated_at", "2015-02-20 14:17:11.955085"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 46], ["body", "Et aliquid hic ducimus minima repellat. Officiis cum quia. Cupiditate sit est. Et ad libero vel officiis et perferendis praesentium."], ["created_at", "2015-02-20 14:17:11.957247"], ["updated_at", "2015-02-20 14:17:11.957247"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 36], ["body", "Pariatur alias sunt. Harum cum quibusdam dolorem eius dolore modi asperiores. Non commodi natus. Et est non corporis perferendis."], ["created_at", "2015-02-20 14:17:11.959343"], ["updated_at", "2015-02-20 14:17:11.959343"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 36], ["body", "Et et ipsam soluta molestias libero enim. Inventore aliquid numquam ut quidem omnis labore architecto. Iste voluptas libero voluptatum eius amet quisquam. Et similique alias et. Libero optio doloribus eligendi nesciunt."], ["created_at", "2015-02-20 14:17:11.961586"], ["updated_at", "2015-02-20 14:17:11.961586"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 7], ["body", "Ea culpa est aperiam magnam fugiat qui. Accusantium et libero maxime. Dicta fugiat voluptatum et rerum. Dolorem nostrum doloremque molestiae et ut quia molestias."], ["created_at", "2015-02-20 14:17:11.963827"], ["updated_at", "2015-02-20 14:17:11.963827"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 8], ["body", "Rerum quas incidunt. Impedit ratione dolorem repellendus fuga. Soluta repudiandae numquam dolore voluptatum. Neque sed aut quo. Quia ea illum."], ["created_at", "2015-02-20 14:17:11.966290"], ["updated_at", "2015-02-20 14:17:11.966290"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 38], ["body", "Autem dignissimos et placeat et quia ut. Quo accusantium eos doloribus dolorem. Impedit ullam praesentium officiis et iusto autem non. Rerum voluptatem voluptatem."], ["created_at", "2015-02-20 14:17:11.968638"], ["updated_at", "2015-02-20 14:17:11.968638"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 43], ["body", "Blanditiis minima est qui hic aut ut. Dolor qui est modi aut a. In nulla inventore vitae asperiores aut rerum."], ["created_at", "2015-02-20 14:17:11.971004"], ["updated_at", "2015-02-20 14:17:11.971004"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 50], ["body", "Odio maiores dolorem nobis consequuntur velit numquam. Rerum voluptate quo ullam enim eos. Dolores atque numquam."], ["created_at", "2015-02-20 14:17:11.973293"], ["updated_at", "2015-02-20 14:17:11.973293"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 24], ["body", "Ab et architecto modi et fuga. Nostrum odit delectus non qui unde et. Qui dignissimos aut quos eos voluptatum repudiandae voluptatem."], ["created_at", "2015-02-20 14:17:11.976426"], ["updated_at", "2015-02-20 14:17:11.976426"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 43], ["body", "Sunt ullam qui nobis eos adipisci. Eaque ea laborum quia ipsa sit eius. Suscipit aspernatur error voluptatibus."], ["created_at", "2015-02-20 14:17:11.978673"], ["updated_at", "2015-02-20 14:17:11.978673"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 3], ["body", "Quos voluptates deserunt aut dolorem ipsam omnis dolor. Aut nisi voluptas quibusdam non. Magni quo ut. Nam exercitationem omnis ut illum sequi voluptatem."], ["created_at", "2015-02-20 14:17:11.980860"], ["updated_at", "2015-02-20 14:17:11.980860"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 45], ["body", "Aspernatur est deserunt odit. Maxime quia ut laboriosam consequatur qui. Aliquid eaque quidem. Corporis recusandae facere ab. Autem aspernatur et iusto eum."], ["created_at", "2015-02-20 14:17:11.982978"], ["updated_at", "2015-02-20 14:17:11.982978"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 31], ["body", "Dolor ipsam vel voluptatem. Quia ratione tenetur saepe delectus labore nostrum aut. Quibusdam fugit repellat dolores. Omnis odit quis animi omnis voluptatem. Illum qui qui id illo rem molestiae omnis."], ["created_at", "2015-02-20 14:17:11.985471"], ["updated_at", "2015-02-20 14:17:11.985471"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 42], ["body", "Quia tempore quibusdam quisquam laborum qui. Quo officiis sed maiores fugit neque et commodi. Veniam necessitatibus officia nam voluptatem totam. Facere nemo itaque et qui."], ["created_at", "2015-02-20 14:17:11.987658"], ["updated_at", "2015-02-20 14:17:11.987658"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 18], ["body", "Quia doloribus velit architecto placeat. Itaque debitis commodi necessitatibus. Necessitatibus occaecati sapiente placeat."], ["created_at", "2015-02-20 14:17:11.989970"], ["updated_at", "2015-02-20 14:17:11.989970"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 12], ["body", "Ullam consequatur pariatur explicabo quis fugiat corrupti ad. Alias atque repellendus dolores rerum molestiae perferendis ipsum. Est similique tempore rem ab minus et. Iure facilis alias aut quibusdam ut."], ["created_at", "2015-02-20 14:17:11.992333"], ["updated_at", "2015-02-20 14:17:11.992333"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 31], ["body", "Possimus nemo velit aut quas nam quia. Non laboriosam praesentium in et. Est impedit commodi cupiditate iste quidem voluptas. Totam quia voluptatum. Similique itaque nemo quae."], ["created_at", "2015-02-20 14:17:11.994717"], ["updated_at", "2015-02-20 14:17:11.994717"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 20], ["body", "Minima non ex quod necessitatibus illo. Sequi odit laborum iste est ratione autem. Sed aspernatur quia ullam nisi."], ["created_at", "2015-02-20 14:17:11.998102"], ["updated_at", "2015-02-20 14:17:11.998102"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 43], ["body", "Sunt fugit ut tempora aut facilis dolor esse. Placeat suscipit sit sapiente quas aut dolorum. Adipisci dignissimos consequatur aut."], ["created_at", "2015-02-20 14:17:12.001255"], ["updated_at", "2015-02-20 14:17:12.001255"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 18], ["body", "Atque error omnis. Et cumque laborum rerum tenetur ut ipsum. Repellendus quis et."], ["created_at", "2015-02-20 14:17:12.004223"], ["updated_at", "2015-02-20 14:17:12.004223"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 37], ["body", "Sed et nam explicabo sit minima. Ipsam sit consequatur facilis laboriosam blanditiis dolor quam. Ea rerum et dolorum ratione earum."], ["created_at", "2015-02-20 14:17:12.007128"], ["updated_at", "2015-02-20 14:17:12.007128"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 16], ["body", "Non ut dignissimos magnam perspiciatis consequatur quis similique. Deserunt magni autem. Ipsum quo sit perspiciatis iusto eaque ea."], ["created_at", "2015-02-20 14:17:12.009281"], ["updated_at", "2015-02-20 14:17:12.009281"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 18], ["body", "Illum non corrupti assumenda ut quis nesciunt ad. Eius qui voluptatem quasi. Omnis accusamus iste. Magni quia vero sit voluptatem aliquam."], ["created_at", "2015-02-20 14:17:12.014513"], ["updated_at", "2015-02-20 14:17:12.014513"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 3], ["body", "Magni in ab beatae veritatis illum et nulla. Consectetur assumenda aut quasi. Soluta nihil iure id autem. Voluptatum quibusdam dolorem doloremque tenetur vitae."], ["created_at", "2015-02-20 14:17:12.016917"], ["updated_at", "2015-02-20 14:17:12.016917"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 30], ["body", "Eaque id architecto. Dolorem eaque libero dolores accusantium facere ratione et. Minima qui quia tempora. Voluptate ut cupiditate cumque voluptates nemo."], ["created_at", "2015-02-20 14:17:12.019603"], ["updated_at", "2015-02-20 14:17:12.019603"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 26], ["body", "Qui corrupti culpa assumenda esse aut. Eius aut est et delectus. Deserunt facere omnis sunt sed. Ut rerum hic sunt minus animi dolor facilis. Et rerum et adipisci harum velit delectus."], ["created_at", "2015-02-20 14:17:12.021988"], ["updated_at", "2015-02-20 14:17:12.021988"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 15], ["body", "Qui inventore et aut sed error debitis impedit. Nulla sint incidunt id non debitis reprehenderit. Alias laboriosam quasi ducimus nam."], ["created_at", "2015-02-20 14:17:12.024085"], ["updated_at", "2015-02-20 14:17:12.024085"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 45], ["body", "Natus ut distinctio. Illo dicta aut maxime exercitationem ut rerum rerum. Esse temporibus facilis animi."], ["created_at", "2015-02-20 14:17:12.026361"], ["updated_at", "2015-02-20 14:17:12.026361"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 2], ["body", "Hic minima ad voluptatem et similique amet. Sunt voluptas aspernatur. Voluptatem enim tenetur aspernatur. Et commodi molestiae rerum et vel quasi accusantium. Aut accusantium nobis et minus itaque earum dolorum."], ["created_at", "2015-02-20 14:17:12.028335"], ["updated_at", "2015-02-20 14:17:12.028335"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 41], ["body", "Ipsum impedit doloremque et eligendi. Et eveniet voluptatem voluptates at consequuntur autem blanditiis. Praesentium quibusdam quae."], ["created_at", "2015-02-20 14:17:12.031357"], ["updated_at", "2015-02-20 14:17:12.031357"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 25], ["body", "Veritatis molestiae quam cum nihil. Sint dolorem molestiae aut impedit facere. Maiores dolore et voluptatum saepe sint quo. Quibusdam sunt assumenda."], ["created_at", "2015-02-20 14:17:12.033913"], ["updated_at", "2015-02-20 14:17:12.033913"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 14], ["body", "Et corporis aut omnis. Qui est cupiditate voluptas tenetur ullam nesciunt at. Libero dolorem earum aut."], ["created_at", "2015-02-20 14:17:12.036513"], ["updated_at", "2015-02-20 14:17:12.036513"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 4], ["body", "Repellat eum soluta alias odio qui quis facilis. Porro qui molestias. Eum rerum et facere voluptatibus. Quis molestiae reiciendis ut."], ["created_at", "2015-02-20 14:17:12.038698"], ["updated_at", "2015-02-20 14:17:12.038698"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 5], ["body", "Officiis laboriosam nesciunt. Ut doloremque nihil. Culpa sint soluta hic. Occaecati pariatur consequatur. Repellendus quasi consequatur quae voluptate."], ["created_at", "2015-02-20 14:17:12.041043"], ["updated_at", "2015-02-20 14:17:12.041043"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 44], ["body", "Rem voluptatem provident reprehenderit molestiae magni. Et molestiae minus rerum vitae maxime ducimus. Beatae reiciendis animi iure. Unde repudiandae optio beatae nulla cum."], ["created_at", "2015-02-20 14:17:12.043291"], ["updated_at", "2015-02-20 14:17:12.043291"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 44], ["body", "Possimus aperiam nesciunt ratione est aliquam. Modi quidem minus aut et incidunt. Ut aperiam ratione ipsa blanditiis non. Et omnis reprehenderit eos non quam quisquam."], ["created_at", "2015-02-20 14:17:12.045926"], ["updated_at", "2015-02-20 14:17:12.045926"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 22], ["body", "Praesentium ut dolores. Mollitia modi optio aut quasi itaque ipsum vitae. Tempore reiciendis praesentium. Voluptatibus et et velit qui veniam ut porro."], ["created_at", "2015-02-20 14:17:12.048411"], ["updated_at", "2015-02-20 14:17:12.048411"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 34], ["body", "Recusandae ipsam doloremque. Alias dignissimos et veritatis ipsum est numquam soluta. Doloribus ut quia et quaerat voluptatem consequatur dolores. Eos modi ipsum omnis cupiditate illo."], ["created_at", "2015-02-20 14:17:12.051185"], ["updated_at", "2015-02-20 14:17:12.051185"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 8], ["body", "Occaecati aut adipisci consequuntur ut nesciunt. Aspernatur rerum molestias molestiae ex libero ipsam. Reiciendis ea doloribus nostrum dolores tempora voluptates."], ["created_at", "2015-02-20 14:17:12.053659"], ["updated_at", "2015-02-20 14:17:12.053659"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 37], ["body", "Aut quia autem officia adipisci culpa. Est ad quia ratione. Repellendus aliquam inventore laboriosam provident ducimus nobis molestias."], ["created_at", "2015-02-20 14:17:12.055741"], ["updated_at", "2015-02-20 14:17:12.055741"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 24], ["body", "Eum alias officiis. Deserunt qui aliquam recusandae nostrum. Cumque non sit nihil quo ea exercitationem. Assumenda odio ut sapiente laboriosam. Ex nam saepe accusamus officia aut perferendis officiis."], ["created_at", "2015-02-20 14:17:12.057806"], ["updated_at", "2015-02-20 14:17:12.057806"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 35], ["body", "Ducimus magni natus est voluptas. Recusandae quod soluta. Asperiores quia omnis. Delectus eos dolor illum iure velit provident. Aut sit occaecati esse."], ["created_at", "2015-02-20 14:17:12.059762"], ["updated_at", "2015-02-20 14:17:12.059762"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 19], ["body", "Consequatur repellat ut. Accusamus placeat soluta. Consequatur commodi voluptas vel omnis voluptates eligendi aperiam. Nemo temporibus sequi ut totam."], ["created_at", "2015-02-20 14:17:12.061867"], ["updated_at", "2015-02-20 14:17:12.061867"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 20], ["body", "Aliquam dicta excepturi illo iste expedita vel. Aut quidem unde sit quibusdam. Quo sint tempore dolorem qui atque. Qui consequatur ullam qui asperiores ut qui quisquam."], ["created_at", "2015-02-20 14:17:12.064426"], ["updated_at", "2015-02-20 14:17:12.064426"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 49], ["body", "Quam error aut eos eum et. Sit quam recusandae ut. Aut consectetur incidunt repellendus nostrum soluta exercitationem beatae. Qui voluptatibus maxime quia nemo sed."], ["created_at", "2015-02-20 14:17:12.066948"], ["updated_at", "2015-02-20 14:17:12.066948"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 38], ["body", "Ipsum fuga architecto aut itaque. Laboriosam qui non quam facilis rerum corporis officia. Blanditiis ducimus culpa."], ["created_at", "2015-02-20 14:17:12.069503"], ["updated_at", "2015-02-20 14:17:12.069503"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 50], ["body", "Hic esse illum repudiandae aspernatur ut fuga sit. Eum voluptatem omnis tempore. Et dolor illum."], ["created_at", "2015-02-20 14:17:12.072395"], ["updated_at", "2015-02-20 14:17:12.072395"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 9], ["body", "Earum rem nihil. Ut maxime consequatur. Sit et voluptatem totam nobis. Expedita blanditiis eaque nulla autem rem et non."], ["created_at", "2015-02-20 14:17:12.074781"], ["updated_at", "2015-02-20 14:17:12.074781"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 25], ["body", "Recusandae repudiandae tenetur id earum rem voluptatem et. Aut nesciunt aliquam quam optio. Rerum aut ex aut totam perspiciatis. Omnis sequi vel vitae temporibus sit pariatur. Non aut ea debitis eum quia."], ["created_at", "2015-02-20 14:17:12.077144"], ["updated_at", "2015-02-20 14:17:12.077144"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 38], ["body", "Voluptatibus qui ipsum enim occaecati pariatur eos. Eum quidem reiciendis. Dolores qui quisquam velit sed voluptas quod. Quam dolor voluptas ipsum voluptates porro illum nemo."], ["created_at", "2015-02-20 14:17:12.080693"], ["updated_at", "2015-02-20 14:17:12.080693"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 28], ["body", "Maxime perspiciatis deserunt optio. Modi similique et iusto saepe ullam. Praesentium nihil pariatur ut numquam. Voluptatibus deserunt debitis ipsam est repudiandae. Enim non magnam et esse quis."], ["created_at", "2015-02-20 14:17:12.083479"], ["updated_at", "2015-02-20 14:17:12.083479"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 31], ["body", "Beatae eaque voluptas quo temporibus neque adipisci est. Vel exercitationem et eos velit ipsam. Earum provident rerum. Sit ut distinctio hic et."], ["created_at", "2015-02-20 14:17:12.086021"], ["updated_at", "2015-02-20 14:17:12.086021"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 34], ["body", "Ullam ea fugiat odio nostrum suscipit. Nisi fuga in voluptatem ex voluptates voluptate tenetur. Eveniet eos corporis voluptatem cum sit."], ["created_at", "2015-02-20 14:17:12.088471"], ["updated_at", "2015-02-20 14:17:12.088471"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 41], ["body", "Et tempora cupiditate eius officia dolorum. Odit non fuga nihil. Aut voluptatem magnam dicta eveniet earum nulla sit. Explicabo est accusamus vero. Ut magni modi aperiam eveniet quia fugiat."], ["created_at", "2015-02-20 14:17:12.090715"], ["updated_at", "2015-02-20 14:17:12.090715"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 15], ["body", "Ipsum dolore qui reprehenderit necessitatibus magnam rerum at. Molestias modi omnis non odit inventore. Dolores quas ratione similique assumenda. Beatae perferendis rerum omnis enim cum quas occaecati. Assumenda non nesciunt amet et similique."], ["created_at", "2015-02-20 14:17:12.093459"], ["updated_at", "2015-02-20 14:17:12.093459"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 47], ["body", "Cumque eum architecto omnis voluptates id qui qui. Dolore nesciunt excepturi sint adipisci error. Quaerat tempora enim quia consequatur vero autem. Et necessitatibus enim praesentium."], ["created_at", "2015-02-20 14:17:12.096811"], ["updated_at", "2015-02-20 14:17:12.096811"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 47], ["body", "Doloremque sed id sed amet quas quod inventore. Occaecati tempora sapiente odit numquam vitae. Et quidem perferendis sed accusantium voluptas. Qui vel autem accusantium natus."], ["created_at", "2015-02-20 14:17:12.099823"], ["updated_at", "2015-02-20 14:17:12.099823"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 23], ["body", "Necessitatibus praesentium distinctio. Dolor voluptas laudantium. Alias quasi ea consequatur officiis."], ["created_at", "2015-02-20 14:17:12.102130"], ["updated_at", "2015-02-20 14:17:12.102130"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 24], ["body", "Dolor harum omnis nobis quisquam quidem et. Quae aut cumque. Tempora maiores magni iure minima debitis."], ["created_at", "2015-02-20 14:17:12.104435"], ["updated_at", "2015-02-20 14:17:12.104435"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 30], ["body", "Voluptatem consequuntur totam deleniti aut cupiditate. Et pariatur voluptas consequatur nostrum atque. Ut fugit ab sit non. Consequatur natus quasi deleniti et vitae quos voluptatum. Omnis quos vero nemo alias."], ["created_at", "2015-02-20 14:17:12.107211"], ["updated_at", "2015-02-20 14:17:12.107211"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 22], ["body", "Qui accusantium suscipit consequuntur blanditiis. Sed in non voluptas sint earum. Dolores non atque."], ["created_at", "2015-02-20 14:17:12.110267"], ["updated_at", "2015-02-20 14:17:12.110267"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 19], ["body", "Quis illo qui. Vitae et laboriosam aut dolores ut corrupti. Voluptates ea rerum. Ipsam commodi soluta vel."], ["created_at", "2015-02-20 14:17:12.114428"], ["updated_at", "2015-02-20 14:17:12.114428"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 44], ["body", "Sapiente voluptatem quibusdam sequi esse illum. Dolore eos est ut fuga. Voluptas sit consequatur iste labore. Et sequi vel dignissimos."], ["created_at", "2015-02-20 14:17:12.117188"], ["updated_at", "2015-02-20 14:17:12.117188"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 16], ["body", "Est omnis quasi qui velit et. Error qui dolor rerum tempore vitae est. Autem animi blanditiis."], ["created_at", "2015-02-20 14:17:12.119825"], ["updated_at", "2015-02-20 14:17:12.119825"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 41], ["body", "Ad doloremque impedit reiciendis perspiciatis aut. Hic dolores voluptas ut quas et. Neque cum saepe corporis."], ["created_at", "2015-02-20 14:17:12.122170"], ["updated_at", "2015-02-20 14:17:12.122170"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 13], ["body", "Quia similique ut modi. Quos ut in officia doloremque consequatur. Minima at aut nesciunt rerum. Quia perferendis fugit odit veritatis et. Et officiis excepturi fugit amet qui corporis voluptates."], ["created_at", "2015-02-20 14:17:12.124679"], ["updated_at", "2015-02-20 14:17:12.124679"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 19], ["body", "Perferendis vero beatae laborum sit quam. Nam voluptatem veniam tempora est consequuntur dolor. A unde laboriosam illo autem qui alias."], ["created_at", "2015-02-20 14:17:12.126959"], ["updated_at", "2015-02-20 14:17:12.126959"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 29], ["body", "Fuga quae cupiditate delectus in veritatis. Sed ipsa ratione. Provident a omnis. Consequatur hic architecto quia."], ["created_at", "2015-02-20 14:17:12.129820"], ["updated_at", "2015-02-20 14:17:12.129820"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 48], ["body", "Error temporibus rerum repellat deleniti accusantium doloribus. Repellat et eius. Magni necessitatibus ut dolor. Autem sequi est. Hic optio omnis est."], ["created_at", "2015-02-20 14:17:12.132326"], ["updated_at", "2015-02-20 14:17:12.132326"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 31], ["body", "Veritatis accusamus magnam reprehenderit quia cum natus quisquam. Illo nostrum dolores. Et consequatur quasi molestiae deserunt. Sapiente sit et debitis et eveniet."], ["created_at", "2015-02-20 14:17:12.134949"], ["updated_at", "2015-02-20 14:17:12.134949"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 2], ["body", "Totam molestias est fugiat pariatur dolore quod ratione. Eum deserunt eligendi magni qui iusto quos temporibus. Eaque voluptas cum eveniet qui voluptatum. Vitae ea veritatis deserunt sed repudiandae voluptatem. Repellat dicta quidem ullam minus temporibus ut perspiciatis."], ["created_at", "2015-02-20 14:17:12.137228"], ["updated_at", "2015-02-20 14:17:12.137228"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 14], ["body", "Omnis corporis aliquam perspiciatis fugit. Consequatur non et consequatur praesentium voluptatibus in delectus. Et cupiditate enim odio occaecati. Quia quo quidem."], ["created_at", "2015-02-20 14:17:12.174709"], ["updated_at", "2015-02-20 14:17:12.174709"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 5], ["body", "Fugiat libero et aut. Dolor id voluptate dolorem dignissimos. Iste temporibus dolor."], ["created_at", "2015-02-20 14:17:12.177743"], ["updated_at", "2015-02-20 14:17:12.177743"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 18], ["body", "Sunt voluptatem reiciendis saepe at. Nemo similique illum aliquid occaecati. Quia numquam suscipit eligendi sit voluptas minus. Veniam itaque aut. Aut enim iusto dolores est eum labore eos."], ["created_at", "2015-02-20 14:17:12.179885"], ["updated_at", "2015-02-20 14:17:12.179885"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 30], ["body", "Consequuntur et dolore molestiae aut. Ratione vel voluptatem quibusdam est et aperiam voluptatum. Ut quo aut. Illo dolorem voluptas molestiae."], ["created_at", "2015-02-20 14:17:12.182318"], ["updated_at", "2015-02-20 14:17:12.182318"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 41], ["body", "Aut sint provident sunt molestiae. Modi aperiam eaque. Recusandae nobis perferendis."], ["created_at", "2015-02-20 14:17:12.184502"], ["updated_at", "2015-02-20 14:17:12.184502"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 46], ["body", "In quia dolor consequatur. Incidunt voluptatibus id vitae officiis et. Hic rerum dolorem et nemo non. In iusto vitae expedita quo pariatur tenetur."], ["created_at", "2015-02-20 14:17:12.187093"], ["updated_at", "2015-02-20 14:17:12.187093"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 17], ["body", "Voluptas earum consequatur voluptas ipsa doloribus ut blanditiis. Beatae eaque reiciendis vitae rerum modi. Distinctio est nihil excepturi dolores voluptatibus. Eaque officia minus ipsum. Facere reiciendis et ratione."], ["created_at", "2015-02-20 14:17:12.189480"], ["updated_at", "2015-02-20 14:17:12.189480"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 3], ["body", "Ut minus qui. Et aut voluptas repellendus necessitatibus. Et amet esse enim expedita aut in voluptatem. Qui sed sed rem modi voluptas provident ut."], ["created_at", "2015-02-20 14:17:12.191673"], ["updated_at", "2015-02-20 14:17:12.191673"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 14], ["body", "Consequatur dolores quas. Culpa et magni laudantium. Nesciunt repellendus magnam aut facere temporibus. Qui fugiat eius sint occaecati impedit autem."], ["created_at", "2015-02-20 14:17:12.193827"], ["updated_at", "2015-02-20 14:17:12.193827"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 47], ["body", "Dolor distinctio aut perferendis cumque ullam esse. Necessitatibus et fugit laborum. Rerum qui voluptas dolores doloremque cumque libero error. Et nam nostrum quasi exercitationem laudantium. Qui pariatur veritatis."], ["created_at", "2015-02-20 14:17:12.195915"], ["updated_at", "2015-02-20 14:17:12.195915"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 49], ["body", "Est veniam et non delectus illum autem dolores. Sint velit quia iusto. Quam est et eligendi quod qui. Numquam consequatur iusto consectetur ducimus cupiditate itaque dolor. Veniam sed voluptatem soluta exercitationem quam."], ["created_at", "2015-02-20 14:17:12.198005"], ["updated_at", "2015-02-20 14:17:12.198005"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 36], ["body", "Commodi sit itaque vitae in necessitatibus aut. Laudantium quod exercitationem deleniti architecto tempore repellendus illo. Officia nam labore quis ipsam perspiciatis ea doloremque."], ["created_at", "2015-02-20 14:17:12.200126"], ["updated_at", "2015-02-20 14:17:12.200126"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 33], ["body", "Ut ut commodi esse eius delectus illo. Ullam reiciendis autem ea. Qui dolorem ullam. Quisquam est magnam recusandae consequatur."], ["created_at", "2015-02-20 14:17:12.202214"], ["updated_at", "2015-02-20 14:17:12.202214"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 45], ["body", "Itaque porro necessitatibus. Pariatur tempore corrupti delectus architecto nesciunt accusamus. Culpa qui dolores. Eaque et nostrum voluptate sed corporis quam."], ["created_at", "2015-02-20 14:17:12.204624"], ["updated_at", "2015-02-20 14:17:12.204624"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 42], ["body", "Consectetur et ab officia nam assumenda. Harum officia autem voluptates et assumenda totam. Asperiores et quia voluptates incidunt sunt voluptas."], ["created_at", "2015-02-20 14:17:12.207148"], ["updated_at", "2015-02-20 14:17:12.207148"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 30], ["body", "Cumque omnis unde. Asperiores totam velit impedit. Consequuntur corrupti non libero."], ["created_at", "2015-02-20 14:17:12.209282"], ["updated_at", "2015-02-20 14:17:12.209282"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 29], ["body", "Non provident omnis cum neque quidem. Et possimus deleniti id reprehenderit error. Et quasi quidem quaerat laborum distinctio rerum omnis. Excepturi dicta natus corrupti error. Voluptatem qui ea."], ["created_at", "2015-02-20 14:17:12.211645"], ["updated_at", "2015-02-20 14:17:12.211645"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 13], ["body", "Quo quas enim recusandae est. In et unde quisquam fugit enim temporibus. Possimus est dolores quia maxime voluptatibus."], ["created_at", "2015-02-20 14:17:12.213689"], ["updated_at", "2015-02-20 14:17:12.213689"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 33], ["body", "Aliquam itaque voluptas. Dolorem in voluptas non at ipsa. Rerum corrupti rerum reprehenderit aut voluptates. Modi voluptas odit consequatur qui."], ["created_at", "2015-02-20 14:17:12.215978"], ["updated_at", "2015-02-20 14:17:12.215978"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 13], ["body", "Veritatis veniam reiciendis. Reiciendis fuga nemo facere quo omnis. Maiores est sunt non eos."], ["created_at", "2015-02-20 14:17:12.218301"], ["updated_at", "2015-02-20 14:17:12.218301"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 29], ["body", "Mollitia et sunt est. Accusamus quia illo eveniet voluptatem cum delectus. Voluptatum nobis perspiciatis dolor."], ["created_at", "2015-02-20 14:17:12.220598"], ["updated_at", "2015-02-20 14:17:12.220598"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 35], ["body", "Nobis iusto quidem. Ipsa dolores deserunt laborum error velit adipisci ut. Eos quia a accusantium consectetur ut. Corrupti voluptatibus ut ut. Beatae rerum facere eos tempora ipsum."], ["created_at", "2015-02-20 14:17:12.223260"], ["updated_at", "2015-02-20 14:17:12.223260"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 45], ["body", "Dolor nesciunt magnam. Autem et aut quia. Deserunt hic qui. Quae inventore beatae molestiae aspernatur."], ["created_at", "2015-02-20 14:17:12.225603"], ["updated_at", "2015-02-20 14:17:12.225603"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 8], ["body", "Sit cumque deserunt rerum aut. Et dolor veritatis labore nulla odit quas. Praesentium nisi veritatis nam eum delectus aliquid."], ["created_at", "2015-02-20 14:17:12.228114"], ["updated_at", "2015-02-20 14:17:12.228114"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 10], ["body", "Modi aperiam sed. Eos iste et suscipit aperiam illum dolor ducimus. Et esse qui. Aliquid soluta ea."], ["created_at", "2015-02-20 14:17:12.230098"], ["updated_at", "2015-02-20 14:17:12.230098"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 23], ["body", "Recusandae asperiores autem et. Dignissimos aperiam officiis sed tempora cumque culpa. Nisi ex vitae est saepe culpa dignissimos. Ab quis dolorem earum quo molestias ut."], ["created_at", "2015-02-20 14:17:12.232271"], ["updated_at", "2015-02-20 14:17:12.232271"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["post_id", 20], ["body", "Nostrum dolor maiores nobis. Quod sint exercitationem nesciunt incidunt et minima quam. Qui quis occaecati accusamus esse voluptatem qui natus. Enim eaque et quis."], ["created_at", "2015-02-20 14:17:12.234390"], ["updated_at", "2015-02-20 14:17:12.234390"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "role", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "Admin User"], ["email", "admin@example.com"], ["encrypted_password", "$2a$10$vta4M6KVSU1A/vfVEjzknuE7ccw.m7Bx49BvPK6/BOdYWZgbTp1/y"], ["role", "admin"], ["confirmed_at", "2015-02-20 14:17:12.292119"], ["created_at", "2015-02-20 14:17:12.293695"], ["updated_at", "2015-02-20 14:17:12.293695"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'moderator@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "role", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "Moderator User"], ["email", "moderator@example.com"], ["encrypted_password", "$2a$10$JSpkQQDdgan5ve3phS2PiOpZXtjRIoGWD.PJkSfP8W4MNWKdlPUsO"], ["role", "moderator"], ["confirmed_at", "2015-02-20 14:17:12.352602"], ["created_at", "2015-02-20 14:17:12.353941"], ["updated_at", "2015-02-20 14:17:12.353941"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'member@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Member User"], ["email", "member@example.com"], ["encrypted_password", "$2a$10$2r/m.jQuEXciZfl1h1CBvOgnmdiAUjY7tyIFmeo.RFUJ8Kroh9wwu"], ["confirmed_at", "2015-02-20 14:17:12.412106"], ["created_at", "2015-02-20 14:17:12.413337"], ["updated_at", "2015-02-20 14:17:12.413337"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments"
+
+
+Started POST "/users/sign_in" for ::1 at 2015-02-20 06:17:50 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vSwXg6SMGB/j6eDVYUO9agcpaNL/3jbv3N5GCItbU1UWFG1kd6nB563cgbYgbaDFcWKUUROoV1TnvYby6cxvYg==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-02-20 14:17:51.041015"], ["current_sign_in_at", "2015-02-20 14:17:51.041015"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-02-20 14:17:51.042433"], ["id", 6]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 457ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2015-02-20 06:17:51 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+Completed 200 OK in 158ms (Views: 157.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/assets/application-5815541167887a608b815eb5cea143a1.js?body=1" for ::1 at 2015-02-20 06:17:51 -0800
+
+
+Started GET "/posts" for ::1 at 2015-02-20 06:18:06 -0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mPost Load (1.6ms)[0m  SELECT "posts".* FROM "posts"  ORDER BY created_at DESC
+  Rendered posts/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 111ms (Views: 101.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/assets/application-5815541167887a608b815eb5cea143a1.js?body=1" for ::1 at 2015-02-20 06:18:06 -0800
+
+
+Started GET "/posts/50" for ::1 at 2015-02-20 06:18:10 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 50]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 118ms (Views: 115.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/50/edit" for ::1 at 2015-02-20 06:18:12 -0800
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1  [["id", 50]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 106ms (Views: 103.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:18:28 -0800
+
+ActionController::RoutingError (No route matches [GET] "/topics/new"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (31.3ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:19:38 -0800
+
+ActionController::RoutingError (uninitialized constant TopicsController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
   actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
   activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
   activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
@@ -45,6 +965,140 @@ Migrations are pending. To resolve this issue, run:
   /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 
 
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (44.7ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:23:17 -0800
+Processing by TopicsController#new as HTML
+Completed 500 Internal Server Error in 7ms
+
+ActionView::MissingTemplate (Missing template topics/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates"
+  * "/Users/dpauli/code/bloccit/app/views"
+  * "/Library/Ruby/Gems/2.0.0/gems/devise-3.4.1/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+>>>>>>> nesting-posts
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+<<<<<<< HEAD
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.4ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
@@ -896,6 +1950,461 @@ Net::SMTPFatalError (550 Cannot receive from specified address <please-change-me
   actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
   actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
   web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+=======
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/missing_template.html.erb within rescues/layout (23.2ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:25:03 -0800
+Processing by TopicsController#new as HTML
+  Rendered topics/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+Completed 200 OK in 114ms (Views: 113.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/application-5815541167887a608b815eb5cea143a1.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/assets/application-5815541167887a608b815eb5cea143a1.js?body=1" for ::1 at 2015-02-20 06:25:03 -0800
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:41:45 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+Completed 500 Internal Server Error in 22ms
+
+Pundit::NotDefinedError (unable to find policy TopicPolicy for #<Topic:0x007feaba809678>):
+  app/controllers/topics_controller.rb:9:in `new'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (38.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (60.7ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-20 06:41:51 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+Completed 500 Internal Server Error in 4ms
+
+Pundit::NotDefinedError (unable to find policy TopicPolicy for #<Topic::ActiveRecord_Relation:0x007feab444d2d8>):
+  app/controllers/topics_controller.rb:4:in `index'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.5ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-20 06:44:29 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics"[0m
+  Rendered topics/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 2175ms (Views: 2085.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:44:31 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:44:31 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:44:32 -0800
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:44:46 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered topics/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 109ms (Views: 106.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:47:23 -0800
+Processing by TopicsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered topics/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 118ms (Views: 116.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:47:23 -0800
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:56:31 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered topics/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 141ms (Views: 116.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:56:32 -0800
+
+
+Started GET "/topics/" for ::1 at 2015-02-20 06:56:37 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mTopic Load (0.2ms)[0m  SELECT "topics".* FROM "topics"
+  Rendered topics/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 113ms (Views: 110.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:56:37 -0800
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:56:39 -0800
+Processing by TopicsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered topics/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 112ms (Views: 110.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 06:59:00 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered topics/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 67ms (Views: 65.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 06:59:00 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-20 06:59:06 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics"
+  Rendered topics/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 69ms (Views: 67.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 06:59:06 -0800
+
+
+Started GET "/topics/8" for ::1 at 2015-02-20 06:59:23 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mTopic Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC  [["topic_id", 8]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 50]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered topics/show.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 141ms (Views: 118.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/topics/8/edit" for ::1 at 2015-02-20 06:59:29 -0800
+Processing by TopicsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered topics/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/topics/8/posts/new" for ::1 at 2015-02-20 06:59:33 -0800
+Processing by PostsController#new as HTML
+  Parameters: {"topic_id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered posts/new.html.erb within layouts/application (55.4ms)
+Completed 500 Internal Server Error in 61ms
+
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x007feab60541e8>:0x007feab605c3e8>):
+    11:      </ul>
+    12:    </div>
+    13:    <div class="col-md-8">
+    14:      <%= form_for @post do |f| %>
+    15:        <div class="form-group">
+    16:          <%= f.label :title %>
+    17:          <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+  app/views/posts/new.html.erb:14:in `_app_views_posts_new_html_erb___3595528519531720398_70323026476100'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.6ms)
+
+
+Started GET "/topics/8/posts/new" for ::1 at 2015-02-20 06:59:33 -0800
+Processing by PostsController#new as HTML
+  Parameters: {"topic_id"=>"8"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered posts/new.html.erb within layouts/application (56.9ms)
+Completed 500 Internal Server Error in 61ms
+
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x007feab60541e8>:0x007feab9a61ca0>):
+    11:      </ul>
+    12:    </div>
+    13:    <div class="col-md-8">
+    14:      <%= form_for @post do |f| %>
+    15:        <div class="form-group">
+    16:          <%= f.label :title %>
+    17:          <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+  app/views/posts/new.html.erb:14:in `_app_views_posts_new_html_erb___3595528519531720398_70323056893500'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (22.2ms)
+
+
+Started GET "/topics/8/posts/new" for ::1 at 2015-02-20 07:06:11 -0800
+
+ActionController::RoutingError (uninitialized constant PostsController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
   web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
   actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
@@ -921,6 +2430,433 @@ Net::SMTPFatalError (550 Cannot receive from specified address <please-change-me
   /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 
 
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (44.4ms)
+
+
+Started GET "/topics/8/posts/new" for ::1 at 2015-02-20 07:07:05 -0800
+Processing by PostsController#new as HTML
+  Parameters: {"topic_id"=>"8"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered posts/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 83ms
+
+ActionView::Template::Error (undefined method `posts_path' for #<#<Class:0x007feab2da2bf0>:0x007feab2db0e58>):
+    11:      </ul>
+    12:    </div>
+    13:    <div class="col-md-8">
+    14:      <%= form_for @post do |f| %>
+    15:        <div class="form-group">
+    16:          <%= f.label :title %>
+    17:          <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+  app/views/posts/new.html.erb:14:in `_app_views_posts_new_html_erb___3595528519531720398_70323056893500'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/" for ::1 at 2015-02-20 07:07:15 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+Completed 200 OK in 125ms (Views: 124.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 07:07:15 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 07:07:16 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-20 07:07:24 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT "topics".* FROM "topics"[0m
+  Rendered topics/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 128ms (Views: 125.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 07:07:24 -0800
+
+
+Started GET "/topics/1" for ::1 at 2015-02-20 07:07:28 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC[0m  [["topic_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 45]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 40]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 31]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered topics/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 127ms (Views: 121.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/topics/1/posts/45" for ::1 at 2015-02-20 07:07:30 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"1", "id"=>"45"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 45]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (53.3ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `edit_post_path' for #<#<Class:0x007feab2da2bf0>:0x007feaba99c648>):
+    3: <h1><%= @post.title %></h1>
+    4: 
+    5: <% if policy(@post).edit? %>
+    6: <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+    7: <% end %>
+    8: 
+    9: <p><%= @post.body %></p>
+  app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb__1252690313144173952_70323064623460'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (20.6ms)
+
+
+Started GET "/topics/1/posts/45" for ::1 at 2015-02-20 07:07:30 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"1", "id"=>"45"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 45]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (58.6ms)
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (undefined method `edit_post_path' for #<#<Class:0x007feab2da2bf0>:0x007feab9f25d68>):
+    3: <h1><%= @post.title %></h1>
+    4: 
+    5: <% if policy(@post).edit? %>
+    6: <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+    7: <% end %>
+    8: 
+    9: <p><%= @post.body %></p>
+  app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb__1252690313144173952_70323059391560'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (49.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (64.5ms)
+
+
+Started GET "/topics/1/posts/45" for ::1 at 2015-02-20 08:20:36 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"1", "id"=>"45"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 45]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (54.3ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined method `edit_post_path' for #<#<Class:0x007feab2da2bf0>:0x007feab2721290>):
+    3: <h1><%= @post.title %></h1>
+    4: 
+    5: <% if policy(@post).edit? %>
+    6: <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+    7: <% end %>
+    8: 
+    9: <p><%= @post.body %></p>
+  app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb__1252690313144173952_70323059391560'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.3ms)
+
+
+Started GET "/topics/1/posts/45" for ::1 at 2015-02-20 08:22:28 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"1", "id"=>"45"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 45]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (29.8ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined method `edit_post_path' for #<#<Class:0x007feab2dcbbb8>:0x007feab2de3240>):
+    3: <h1><%= @post.title %></h1>
+    4: 
+    5: <% if policy(@post).edit? %>
+    6: <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+    7: <% end %>
+    8: 
+    9: <p><%= @post.body %></p>
+  app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb__1252690313144173952_70323059391560'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/topics/1/posts/45" for ::1 at 2015-02-20 08:26:55 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"1", "id"=>"45"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 45]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (55.8ms)
+Completed 500 Internal Server Error in 60ms
+
+ActionView::Template::Error (undefined method `topic_post' for #<#<Class:0x007feab2dcbbb8>:0x007feab9cb1f78>):
+    3: <h1><%= @post.title %></h1>
+    4: 
+    5: <% if policy(@post).edit? %>
+    6: <%= link_to "Edit", topic_post(@post), class: 'btn btn-success' %>
+    7: <% end %>
+    8: 
+    9: <p><%= @post.body %></p>
+  app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb__1252690313144173952_70323058106240'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (43.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (63.4ms)
+
+
+Started GET "/topics/1/posts/45" for ::1 at 2015-02-20 08:31:52 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"1", "id"=>"45"}
+  [1m[35mTopic Load (0.2ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 45]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (27.5ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined method `topic_post' for #<#<Class:0x007feab2dcbbb8>:0x007feab2c73338>):
+    3: <h1><%= @post.title %></h1>
+    4: 
+    5: <% if policy(@post).edit? %>
+    6: <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+    7: <% end %>
+    8: 
+    9: <p><%= @post.body %></p>
+  app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb__1252690313144173952_70323058106240'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.2ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-20 08:31:59 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics"[0m
+  Rendered topics/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 123ms (Views: 120.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-20 08:31:59 -0800
+
+
+Started GET "/topics/new" for ::1 at 2015-02-20 08:32:02 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered topics/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 116ms (Views: 113.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for ::1 at 2015-02-20 08:32:09 -0800
+
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+>>>>>>> nesting-posts
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+<<<<<<< HEAD
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.3ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
@@ -1012,3 +2948,11 @@ Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1
 
 
 Started GET "/assets/application-5815541167887a608b815eb5cea143a1.js?body=1" for ::1 at 2015-02-20 05:45:01 -0800
+=======
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (27.6ms)
+>>>>>>> nesting-posts
