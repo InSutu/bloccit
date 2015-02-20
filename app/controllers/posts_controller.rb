@@ -5,15 +5,18 @@ class PostsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
   end
 
   def new
+    @topic = Topic.find(params[:topic_id])
     @post = Post.new
       authorize @post
   end
 
   def create
+    @topic = Topic.find(params[:topic_id])
     @post = Post.new(params.require(:post).permit(:title, :body))
       #raise #this will short circuit the method and can be used for debugging
       authorize @post
@@ -29,11 +32,13 @@ class PostsController < ApplicationController
 
 
   def edit
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
       authorize @post
   end
 
   def update
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
       authorize @post
 
