@@ -12,7 +12,7 @@ group :production do
  group :development do
    gem 'sqlite3'
  end
-
+gem 'redcarpet'
 gem 'devise'
 gem 'faker'
 gem 'figaro', '1.0'

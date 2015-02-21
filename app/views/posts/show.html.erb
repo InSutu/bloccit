@@ -1,9 +1,10 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-<h1><%= @post.title %></h1>
+<h1><%= markdown_to_html @post.title %></h1>
 
 <% if policy(@post).edit? %>
 <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
 <% end %>
 
-<p><%= @post.body %></p>
+<div class="row">
+  <div class="col-md-8">
+     <p><%= markdown_to_html @post.body %></p>
+  </div>
