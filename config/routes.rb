@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #get 'topics/edit'
 
   devise_for :users
+  resources :users, only: [:update]
   #get 'posts/index' Remove per CRUD checkopoint
   #get 'posts/show'
   #get 'posts/new'
