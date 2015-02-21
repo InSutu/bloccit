@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   #resources :posts - Removed to add nesting
   #resources :topics
      resources :topics do
-     resources :posts, except: [:index]
-   end
+      resources :posts, except: [:index]
+      end
 
   #get 'welcome/index'
   #get 'welcome/about'
