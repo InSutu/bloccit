@@ -3957,3 +3957,1421 @@ Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for
 
 
 Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-21 09:14:41 -0800
+
+
+Started GET "/" for ::1 at 2015-02-24 12:51:42 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 274ms (Views: 253.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-02-24 12:51:43 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 114ms (Views: 113.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:51:43 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:51:47 -0800
+Processing by TopicsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `paginate' for #<Class:0x007fc3cc8d7df8>):
+  app/controllers/topics_controller.rb:4:in `index'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (26.3ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:52:45 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TopicsController#index as HTML
+  [1m[35mTopic Load (0.5ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 212ms (Views: 181.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:52:45 -0800
+
+
+Started GET "/topics/1" for ::1 at 2015-02-24 12:52:48 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 1]]
+  Rendered topics/show.html.erb within layouts/application (52.4ms)
+Completed 500 Internal Server Error in 127ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff0fbc0d250>:0x007ff101b227e0>):
+    11:        <div class="media">
+    12:          <div class="media-body">
+    13:             <h4 class="media-heading">
+    14:               <%= link_to (markdown_to_html post.title), [@topic, post] %>
+    15:             </h4>
+    16:             <small>
+    17:               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+  app/views/topics/show.html.erb:14:in `block in _app_views_topics_show_html_erb___2225827277891861038_70336546167940'
+  app/views/topics/show.html.erb:10:in `_app_views_topics_show_html_erb___2225827277891861038_70336546167940'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/topics/1" for ::1 at 2015-02-24 12:52:49 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 1]]
+  Rendered topics/show.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff0fbc0d250>:0x007ff0fbd6e9a0>):
+    11:        <div class="media">
+    12:          <div class="media-body">
+    13:             <h4 class="media-heading">
+    14:               <%= link_to (markdown_to_html post.title), [@topic, post] %>
+    15:             </h4>
+    16:             <small>
+    17:               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+  app/views/topics/show.html.erb:14:in `block in _app_views_topics_show_html_erb___2225827277891861038_70336497017980'
+  app/views/topics/show.html.erb:10:in `_app_views_topics_show_html_erb___2225827277891861038_70336497017980'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-02-24 12:52:58 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (6.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (335.3ms)
+Completed 200 OK in 467ms (Views: 448.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-02-24 12:53:03 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"myWQAq1udetzmD7Xgd55ASZbYntzU64xn8ONNt7TVyE0l3KHkkPz2N7afj1LFRmhxKSMjMi2YnTV0jHGBiDrTQ==", "user"=>{"email"=>"dpauli.private@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "dpauli.private@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-02-24 20:53:04.015232"], ["sign_in_count", 2], ["updated_at", "2015-02-24 20:53:04.016603"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 68ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-02-24 12:53:04 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 120ms (Views: 118.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:53:04 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:53:09 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0[0m
+  Rendered topics/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 117ms (Views: 115.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:53:09 -0800
+
+
+Started GET "/topics/1" for ::1 at 2015-02-24 12:53:12 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 1]]
+  Rendered topics/show.html.erb within layouts/application (51.7ms)
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff0fbc0d250>:0x007ff103931510>):
+    11:        <div class="media">
+    12:          <div class="media-body">
+    13:             <h4 class="media-heading">
+    14:               <%= link_to (markdown_to_html post.title), [@topic, post] %>
+    15:             </h4>
+    16:             <small>
+    17:               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+  app/views/topics/show.html.erb:14:in `block in _app_views_topics_show_html_erb___2225827277891861038_70336546167940'
+  app/views/topics/show.html.erb:10:in `_app_views_topics_show_html_erb___2225827277891861038_70336546167940'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (44.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (59.1ms)
+
+
+Started GET "/topics/1" for ::1 at 2015-02-24 12:53:12 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 1]]
+  Rendered topics/show.html.erb within layouts/application (17.6ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff0fbc0d250>:0x007ff0fd6f4eb0>):
+    11:        <div class="media">
+    12:          <div class="media-body">
+    13:             <h4 class="media-heading">
+    14:               <%= link_to (markdown_to_html post.title), [@topic, post] %>
+    15:             </h4>
+    16:             <small>
+    17:               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+  app/views/topics/show.html.erb:14:in `block in _app_views_topics_show_html_erb___2225827277891861038_70336497017980'
+  app/views/topics/show.html.erb:10:in `_app_views_topics_show_html_erb___2225827277891861038_70336497017980'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.8ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:53:16 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 119ms (Views: 117.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:53:31 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"prS7fx2HQ92wnF+gU36yskO8ZTJU0Q9xW9E/QoDrqgld3D6cMkB/AWd1Wp2qtks8WVfJLig7cFWrEQ/McK6eyA==", "topic"=>{"name"=>"Wow - Super Exciting Red Camaro", "description"=>"Incredible - see how fast it goes!", "public"=>"1"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wow - Super Exciting Red Camaro"], ["description", "Incredible - see how fast it goes!"], ["created_at", "2015-02-24 20:53:31.256492"], ["updated_at", "2015-02-24 20:53:31.256492"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics/2
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/topics/2" for ::1 at 2015-02-24 12:53:31 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 2]]
+  Rendered topics/show.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 127ms (Views: 123.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:53:31 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:53:37 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 117ms (Views: 113.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:53:37 -0800
+
+
+Started GET "/about" for ::1 at 2015-02-24 12:53:45 -0800
+Processing by WelcomeController#about as HTML
+  Rendered welcome/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 116ms (Views: 115.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-02-24 12:53:45 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 118ms (Views: 117.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:54:26 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.2ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 118ms (Views: 115.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:54:26 -0800
+
+
+Started GET "/posts" for ::1 at 2015-02-24 12:54:33 -0800
+
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (30.9ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:54:41 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 119ms (Views: 116.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:54:41 -0800
+
+
+Started GET "/topics/1" for ::1 at 2015-02-24 12:54:44 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 1]]
+  Rendered topics/show.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff0fbc0d250>:0x007ff0fbb9d1f8>):
+    11:        <div class="media">
+    12:          <div class="media-body">
+    13:             <h4 class="media-heading">
+    14:               <%= link_to (markdown_to_html post.title), [@topic, post] %>
+    15:             </h4>
+    16:             <small>
+    17:               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+  app/views/topics/show.html.erb:14:in `block in _app_views_topics_show_html_erb___2225827277891861038_70336546167940'
+  app/views/topics/show.html.erb:10:in `_app_views_topics_show_html_erb___2225827277891861038_70336546167940'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (10.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.8ms)
+
+
+Started GET "/topics/1" for ::1 at 2015-02-24 12:54:44 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 1]]
+  Rendered topics/show.html.erb within layouts/application (53.2ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff0fbc0d250>:0x007ff103b166a0>):
+    11:        <div class="media">
+    12:          <div class="media-body">
+    13:             <h4 class="media-heading">
+    14:               <%= link_to (markdown_to_html post.title), [@topic, post] %>
+    15:             </h4>
+    16:             <small>
+    17:               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+  app/views/topics/show.html.erb:14:in `block in _app_views_topics_show_html_erb___2225827277891861038_70336497017980'
+  app/views/topics/show.html.erb:10:in `_app_views_topics_show_html_erb___2225827277891861038_70336497017980'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (21.7ms)
+
+
+Started GET "/topics/2" for ::1 at 2015-02-24 12:54:50 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 2]]
+  Rendered topics/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 118ms (Views: 112.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/topics/2/edit" for ::1 at 2015-02-24 12:54:53 -0800
+Processing by TopicsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered topics/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 120ms (Views: 118.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics/2/posts/new" for ::1 at 2015-02-24 12:54:57 -0800
+Processing by PostsController#new as HTML
+  Parameters: {"topic_id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 121ms (Views: 118.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/topics/2/posts" for ::1 at 2015-02-24 12:55:18 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z1D1G9iwazMPh3DR5+CzyT72rOpMsgCjvowDHrqA1t6cOHD493dX79hudeweKEpHJB0A9jBYf4dOTDOQSsXiHw==", "post"=>{"title"=>"Exciting new post for new Camaro topic", "body"=>"Wow - see Jose go REALLY fast in his red camaro."}, "commit"=>"Save", "topic_id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("title", "body", "user_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Exciting new post for new Camaro topic"], ["body", "Wow - see Jose go REALLY fast in his red camaro."], ["user_id", 1], ["topic_id", 2], ["created_at", "2015-02-24 20:55:18.554266"], ["updated_at", "2015-02-24 20:55:18.554266"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/2/posts/9
+Completed 302 Found in 10ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/topics/2/posts/9" for ::1 at 2015-02-24 12:55:18 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"topic_id"=>"2", "id"=>"9"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ?  ORDER BY created_at DESC LIMIT 1[0m  [["id", 9]]
+  Rendered posts/show.html.erb within layouts/application (61.5ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (undefined method `markdown_to_html' for #<#<Class:0x007ff101cf0040>:0x007ff103b78a08>):
+    1: <h1><%= markdown_to_html @post.title %></h1>
+    2: 
+    3: <% if policy(@post).edit? %>
+    4: <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___1872789478541717190_70336563115340'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (23.2ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:56:00 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0[0m
+  Rendered topics/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 135ms (Views: 131.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:56:01 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0[0m
+  Rendered topics/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 120ms (Views: 117.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:56:01 -0800
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:56:02 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 120ms (Views: 118.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:56:22 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JLiZD8DVeCyAFz9ewnO0qUlfq+v26a0hwOlhx38LDWPf0Bzs7xJE8Ff+OmM7u00nU7QH94oD0gUwKVFJj045og==", "topic"=>{"name"=>"Topic Topic Topic Topic 3", "description"=>"Topic Topic Topic Topic 3", "public"=>"1"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Topic Topic Topic Topic 3"], ["description", "Topic Topic Topic Topic 3"], ["created_at", "2015-02-24 20:56:22.280081"], ["updated_at", "2015-02-24 20:56:22.280081"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics/3
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/topics/3" for ::1 at 2015-02-24 12:56:22 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 3]]
+  Rendered topics/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 130ms (Views: 126.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:56:22 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:56:27 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.3ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 80ms (Views: 78.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:56:29 -0800
+Processing by TopicsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 120ms (Views: 118.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:56:36 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QFFM13bCvGXd3kGypTdt+y4JKpTuz5hYPss+epInmme7Ock0WQWAuQo3RI9c/5R1NOKGiJIl53zOCw70YmKupg==", "topic"=>{"name"=>"Topic Topic Topic Topic 4", "description"=>"Topic Topic Topic Topic 4", "public"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Topic Topic Topic Topic 4"], ["description", "Topic Topic Topic Topic 4"], ["created_at", "2015-02-24 20:56:36.252386"], ["updated_at", "2015-02-24 20:56:36.252386"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/4
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/topics/4" for ::1 at 2015-02-24 12:56:36 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mTopic Load (0.2ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 4]]
+  Rendered topics/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 129ms (Views: 124.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:56:36 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:56:42 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0[0m
+  Rendered topics/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 120ms (Views: 117.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:56:44 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 121ms (Views: 119.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:56:50 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZFwvL27PptF/pEf01YG514ZM4PBpf9hvY8FjOaBHhZi+fVfknwCR5IXlCIqnv9pRPKfn71PgEVNTzUCFsQq1w==", "topic"=>{"name"=>"Topic Topic Topic Topic 5", "description"=>"Topic Topic Topic Topic 5", "public"=>"1"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Topic Topic Topic Topic 5"], ["description", "Topic Topic Topic Topic 5"], ["created_at", "2015-02-24 20:56:50.731222"], ["updated_at", "2015-02-24 20:56:50.731222"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics/5
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/topics/5" for ::1 at 2015-02-24 12:56:50 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 5]]
+  Rendered topics/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 85ms (Views: 81.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:56:50 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:56:56 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.2ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 122ms (Views: 119.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:56:58 -0800
+Processing by TopicsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 117ms (Views: 114.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:57:04 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JEVQjeHw6c8BOpc16i2tSqgKdFGC0Ok6ug3Kpd9XBOHfLdVuzjfVE9bTkggT5VTEsuHYTf46lh5KzforLxIwIA==", "topic"=>{"name"=>"Topic Topic Topic Topic 6", "description"=>"Topic Topic Topic Topic 6", "public"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Topic Topic Topic Topic 6"], ["description", "Topic Topic Topic Topic 6"], ["created_at", "2015-02-24 20:57:04.705276"], ["updated_at", "2015-02-24 20:57:04.705276"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/6
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/topics/6" for ::1 at 2015-02-24 12:57:04 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 6]]
+  Rendered topics/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 123ms (Views: 119.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:04 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:57:07 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0[0m
+  Rendered topics/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 121ms (Views: 118.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:57:09 -0800
+Processing by TopicsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 117ms (Views: 115.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:57:16 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bakp+s7lK5La6eCSird47CrZDGlEKrqkMgz/5T2i64L+wawZ4SIXTg0A5a9zf4FiMDKgdTjAxYDCzM9rzeffQw==", "topic"=>{"name"=>"Topic Topic Topic Topic 7", "description"=>"Topic Topic Topic Topic 7", "public"=>"1"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Topic Topic Topic Topic 7"], ["description", "Topic Topic Topic Topic 7"], ["created_at", "2015-02-24 20:57:16.035461"], ["updated_at", "2015-02-24 20:57:16.035461"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/topics/7
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/topics/7" for ::1 at 2015-02-24 12:57:16 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0  [["topic_id", 7]]
+  Rendered topics/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 129ms (Views: 124.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:16 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:57:18 -0800
+Processing by TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  Rendered topics/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 119ms (Views: 117.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics/new" for ::1 at 2015-02-24 12:57:20 -0800
+Processing by TopicsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered topics/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 117ms (Views: 115.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:57:27 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x7tRPkZqvfAlgT4usXiuDgc1VmDTUQ7bs11PT17VxIk809Tdaa2BLPJoOxNIsFeAHd76fK+7cf9DnX/BrpDwSA==", "topic"=>{"name"=>"Topic Topic Topic Topic 8", "description"=>"Topic Topic Topic Topic 8", "public"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Topic Topic Topic Topic 8"], ["description", "Topic Topic Topic Topic 8"], ["created_at", "2015-02-24 20:57:27.272568"], ["updated_at", "2015-02-24 20:57:27.272568"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/8
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/topics/8" for ::1 at 2015-02-24 12:57:27 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 8]]
+  Rendered topics/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 123ms (Views: 119.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:27 -0800
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:57:38 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8DOZDCO2V8iIaNuyodvb+fq2xwg99QsYtubkV621zDsLWxzvDHFrFF+B3o9YEyJ34F1rFEEfdDxGJtTZXfD4+g==", "topic"=>{"name"=>"Topic Topic Topic Topic 9", "description"=>"Topic Topic Topic Topic 9", "public"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Topic Topic Topic Topic 9"], ["description", "Topic Topic Topic Topic 9"], ["created_at", "2015-02-24 20:57:38.760426"], ["updated_at", "2015-02-24 20:57:38.760426"]]
+  [1m[36m (72.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/9
+Completed 302 Found in 78ms (ActiveRecord: 73.1ms)
+
+
+Started GET "/topics/9" for ::1 at 2015-02-24 12:57:38 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 9]]
+  Rendered topics/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 118ms (Views: 115.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:39 -0800
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:57:46 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8DOZDCO2V8iIaNuyodvb+fq2xwg99QsYtubkV621zDsLWxzvDHFrFF+B3o9YEyJ34F1rFEEfdDxGJtTZXfD4+g==", "topic"=>{"name"=>"Topic Topic Topic Topic 10", "description"=>"Topic Topic Topic Topic 10", "public"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Topic Topic Topic Topic 10"], ["description", "Topic Topic Topic Topic 10"], ["created_at", "2015-02-24 20:57:46.726440"], ["updated_at", "2015-02-24 20:57:46.726440"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/10
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/topics/10" for ::1 at 2015-02-24 12:57:46 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 10]]
+  Rendered topics/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 126ms (Views: 121.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:46 -0800
+
+
+Started POST "/topics" for ::1 at 2015-02-24 12:57:53 -0800
+Processing by TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8DOZDCO2V8iIaNuyodvb+fq2xwg99QsYtubkV621zDsLWxzvDHFrFF+B3o9YEyJ34F1rFEEfdDxGJtTZXfD4+g==", "topic"=>{"name"=>"Topic Topic Topic Topic 11", "description"=>"Topic Topic Topic Topic 11", "public"=>"1"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Topic Topic Topic Topic 11"], ["description", "Topic Topic Topic Topic 11"], ["created_at", "2015-02-24 20:57:53.419547"], ["updated_at", "2015-02-24 20:57:53.419547"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/topics/11
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/topics/11" for ::1 at 2015-02-24 12:57:53 -0800
+Processing by TopicsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Exists (0.1ms)[0m  SELECT  1 AS one FROM "topics" WHERE "topics"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."topic_id" = ?  ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m  [["topic_id", 11]]
+  Rendered topics/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 86ms (Views: 81.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:53 -0800
+
+
+Started GET "/topics" for ::1 at 2015-02-24 12:57:57 -0800
+Processing by TopicsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mTopic Load (0.1ms)[0m  [1mSELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "topics"
+  Rendered topics/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 126ms (Views: 124.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/topics-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/welcome-3ed924ff8ccea31e10904e5a81810b5a.css?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/posts-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/application-d8c96d5c1fb84bcbf8638fdf210425f3.css?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/topics-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/posts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/assets/application-47b956808b7505099af61c65f6c45de4.js?body=1" for ::1 at 2015-02-24 12:57:57 -0800
+
+
+Started GET "/topics?page=2" for ::1 at 2015-02-24 12:57:59 -0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 10
+  Rendered topics/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 119ms (Views: 116.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/topics?page=1" for ::1 at 2015-02-24 12:58:01 -0800
+Processing by TopicsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT  "topics".* FROM "topics" LIMIT 10 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "topics"[0m
+  Rendered topics/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 120ms (Views: 118.3ms | ActiveRecord: 0.3ms)

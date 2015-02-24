@@ -12,6 +12,10 @@ group :production do
  group :development do
    gem 'sqlite3'
  end
+
+gem 'will_paginate', '~> 3.0.5'
+gem 'carrierwave'
+gem 'cloudinary'
 gem 'redcarpet'
 gem 'devise'
 gem 'faker'

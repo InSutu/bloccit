@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: heodyodhd
+  api_key: '936665354332225'
+  api_secret: _razC_v0FVx9xlZmS-scI8r15e8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: heodyodhd
+  api_key: '936665354332225'
+  api_secret: _razC_v0FVx9xlZmS-scI8r15e8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: heodyodhd
+  api_key: '936665354332225'
+  api_secret: _razC_v0FVx9xlZmS-scI8r15e8
+  enhance_image_tag: true
+  static_image_support: false

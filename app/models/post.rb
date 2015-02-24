@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  mount_uploader :picture, ImageUploader
   has_many :comments
   belongs_to :user
    belongs_to :topic
