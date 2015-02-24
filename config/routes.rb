@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Nesting comments for Comments checkpoint:  https://github.com/Bloc/rails-tutorial/blob/master/answers.md
   resources :topics do
     resources :posts, except: [:index] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
   end
 
