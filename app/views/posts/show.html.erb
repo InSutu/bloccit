@@ -9,4 +9,13 @@
      <p><%= markdown_to_html @post.body %></p>
   </div>
 
+<h2><%= @comments.count %> Comments</h2>
+
+    <%= render @comments %>
+
+    <% if can? :create, Comment %>
+      <hr/>
+      <h4>New Comment</h4>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% end %>
 
