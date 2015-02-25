@@ -1,3 +1,3 @@
 class Topic < ActiveRecord::Base
-  has_many :posts, dependant: :destroy
+  has_many :posts, dependent: :destroy
 end
