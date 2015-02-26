@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
+    mount_uploader :avatar, ImageUploader
   has_many :comments
   #https://github.com/Bloc/rails-tutorial/blob/master/answers.md
 
