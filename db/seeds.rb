@@ -32,12 +32,15 @@ require 'faker'
 #Create Posts
 
 50.times do 
-  Post.create!(
+  post = Post.create!(
       user: users.sample,
         topic:  topics.sample,
     title:  Faker::Lorem.sentence, #creates the test data
     body:   Faker::Lorem.paragraph
     )
+    # set the created_at to a time within the past year
+   post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+   post.update_rank
 end
 
 # For Comments checkpoint - https://github.com/Bloc/rails-tutorial/blob/master/answers.md
@@ -50,6 +53,7 @@ User.all.each do |user|
       body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"),
       post: p)
     c.update_attribute(:created_at, Time.now - rand(600.31536000))
+    post.create_vote
   end
 end
 
