@@ -1,4 +1,5 @@
 <div class="media">
+  <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
   <%= link_to '#', class: 'pull-left' do %>
     
   <% end %>
@@ -11,4 +12,5 @@
     </small>
     <p><%= comment.body %></p>
   </div>
-</div>
+
+<% end %>

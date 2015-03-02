@@ -1,33 +1,33 @@
 # require 'rails_helper'
  
-#  describe Comment do
+ describe Comment do
  
-#    include TestFactories
+   include TestFactories
  
-#    describe "after_create" do
+   describe "after_create" do
  
-#      before do
-#        @post = associated_post
-#        @user = authenticated_user
-#        @comment = Comment.new(body: 'My comment', post: @post, user_id: 10000)
-#      end
+     before do
+       @post = associated_post
+       @user = authenticated_user
+       @comment = Comment.new(body: 'My comment', post: @post, user_id: 10000)
+     end
  
-#      it "sends an email to users who have favorited the post" do
-#        @user.favorites.where(post: @post).create
+     it "sends an email to users who have favorited the post" do
+       @user.favorites.where(post: @post).create
  
-#        allow( FavoriteMailer )
-#          .to receive(:new_comment)
-#          .with(@user, @post, @comment)
-#          .and_return( double(deliver: true) )
+       allow( FavoriteMailer )
+         .to receive(:new_comment)
+         .with(@user, @post, @comment)
+         .and_return( double(deliver_now: true) )
  
-#        @comment.save
-#      end
+       @comment.save
+     end
  
-#      it "does not send emails to users who haven't" do
-#        expect( FavoriteMailer )
-#          .not_to receive(:new_comment)
+     it "does not send emails to users who haven't" do
+       expect( FavoriteMailer )
+         .not_to receive(:new_comment)
  
-#        @comment.save
-#      end
-#    end
-#  end
+       @comment.save
+     end
+   end
+ end

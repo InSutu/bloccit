@@ -1,14 +1,14 @@
  # require 'rails_helper'
  
- # describe User do
+ describe User do
  
- #   include TestFactories
+   include TestFactories
  
- #   describe "#favorited(post)" do
- #     xit "returns `nil` if the user has not favorited the post" do
- #     end
+   describe "#favorited(post)" do
+     xit "returns `nil` if the user has not favorited the post" do
+     end
  
- #     xit "returns the appropriate favorite if it exists" do
- #     end
- #   end
- # end
+     xit "returns the appropriate favorite if it exists" do
+     end
+   end
+ end
