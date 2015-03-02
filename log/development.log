@@ -14542,3 +14542,646 @@ Migrating to AddRankToPosts (20150301221125)
   [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer, "rank" float) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar, "avatar" varchar) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "post_id" integer, "value" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150301221125')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012309')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012556')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150217012820')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218125814')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218195453')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150220135848')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220141217')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150224211350')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150225235349')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150228003115')[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer, "rank" float) [0m
+  [1m[35m (0.6ms)[0m  CREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar, "avatar" varchar) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "post_id" integer, "value" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150301221125')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012309')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012556')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150217012820')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218125814')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218195453')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220135848')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150220141217')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150224211350')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150225235349')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150228003115')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jayce@greenfelder.net' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Mathilde Schoen"], ["email", "jayce@greenfelder.net"], ["encrypted_password", "$2a$10$vPWMzMY9hiEWZcCnArU//.rSXIypAj6WWrlMFeDhjlUKSdq9VqOA."], ["confirmed_at", "2015-03-01 22:20:59.961576"], ["created_at", "2015-03-01 22:20:59.970786"], ["updated_at", "2015-03-01 22:20:59.970786"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ashtyn@stracke.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Ms. Marianne O'Connell"], ["email", "ashtyn@stracke.net"], ["encrypted_password", "$2a$10$cri2a8WNkeniIsQZpICm2OgRAWzwook/ImPi/pQkuiI9ksA8jREWe"], ["confirmed_at", "2015-03-01 22:21:00.031888"], ["created_at", "2015-03-01 22:21:00.033540"], ["updated_at", "2015-03-01 22:21:00.033540"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kasey.schumm@greenholt.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Izaiah Hane"], ["email", "kasey.schumm@greenholt.org"], ["encrypted_password", "$2a$10$oTIsbvJgVOu.jpQNUdsyhesT/7CbQ.8aJYDsrgGQ1/uGMYAqjDH6K"], ["confirmed_at", "2015-03-01 22:21:00.092099"], ["created_at", "2015-03-01 22:21:00.093576"], ["updated_at", "2015-03-01 22:21:00.093576"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'magnolia_schamberger@mayer.net' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Antonio DuBuque"], ["email", "magnolia_schamberger@mayer.net"], ["encrypted_password", "$2a$10$uwRFa7l.M0TjFxQc/GfeTeAcQBD5MRjHWk0Gl3t2cBbKOjkvyWk8S"], ["confirmed_at", "2015-03-01 22:21:00.152511"], ["created_at", "2015-03-01 22:21:00.153952"], ["updated_at", "2015-03-01 22:21:00.153952"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'esperanza@graham.biz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dr. Lorenza Wolf"], ["email", "esperanza@graham.biz"], ["encrypted_password", "$2a$10$1rYHB4Eln1XAqhyeUFer0.mMFFVRu6.oG9rJxsyf5FkjyahUcL6Pq"], ["confirmed_at", "2015-03-01 22:21:00.216546"], ["created_at", "2015-03-01 22:21:00.218317"], ["updated_at", "2015-03-01 22:21:00.218317"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Et tempore ullam omnis voluptatibus rerum."], ["description", "Nulla fuga omnis. Perspiciatis omnis molestias est sequi et omnis qui. Eius vel ratione et. Debitis similique quia quis unde. Aspernatur quo minima laboriosam similique voluptas enim."], ["created_at", "2015-03-01 22:21:00.267480"], ["updated_at", "2015-03-01 22:21:00.267480"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Consequatur dolor ut nihil magnam est harum."], ["description", "Velit temporibus omnis eum sunt quo ipsam. Ut voluptas et maiores dolore iure voluptatum. Fugiat quia blanditiis atque. Maxime id accusantium odit culpa eos. Natus saepe ipsa ad hic fugit molestiae culpa."], ["created_at", "2015-03-01 22:21:00.270183"], ["updated_at", "2015-03-01 22:21:00.270183"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Facilis numquam odit dolorum velit explicabo."], ["description", "Id non aut repellat veritatis officiis. Sint accusantium exercitationem. Cumque iusto ut iste. Veritatis consequatur earum officiis ullam molestias sed. Molestiae rerum voluptate perferendis modi fuga in."], ["created_at", "2015-03-01 22:21:00.272442"], ["updated_at", "2015-03-01 22:21:00.272442"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Et ea expedita ad esse."], ["description", "Ea doloremque iusto voluptatem nam consequatur. Impedit fugiat ullam nisi et. Mollitia culpa inventore. Consequuntur quas ullam eum."], ["created_at", "2015-03-01 22:21:00.274440"], ["updated_at", "2015-03-01 22:21:00.274440"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Modi ratione nam perferendis omnis quia ut est."], ["description", "Dolore esse ratione et. Reiciendis dolore non. Saepe impedit fugiat."], ["created_at", "2015-03-01 22:21:00.276993"], ["updated_at", "2015-03-01 22:21:00.276993"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Provident voluptas tenetur odit ducimus."], ["description", "Hic saepe minima. Veniam molestias quo facilis. Quo sit sint dolorum qui voluptatem."], ["created_at", "2015-03-01 22:21:00.279086"], ["updated_at", "2015-03-01 22:21:00.279086"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Possimus aliquid qui quia et autem culpa."], ["description", "Impedit quisquam omnis asperiores dolor. Delectus quam excepturi rerum ut illo voluptatem. Omnis quo magnam molestiae natus maiores recusandae. Facilis et iusto. In eveniet modi vel sunt voluptatem facere."], ["created_at", "2015-03-01 22:21:00.280991"], ["updated_at", "2015-03-01 22:21:00.280991"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Fugiat repellat quis ex odit aut veritatis voluptate."], ["description", "Qui quod perspiciatis quas est dignissimos et est. Tempore vero voluptatem esse soluta facere quia voluptatem. Saepe cupiditate maxime sequi aperiam. Molestias neque corrupti. Quia quidem deleniti sit soluta eveniet."], ["created_at", "2015-03-01 22:21:00.283264"], ["updated_at", "2015-03-01 22:21:00.283264"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ut unde in molestiae et maxime."], ["description", "Ut ut quasi expedita eum aut molestias. Labore velit sed. Dolore saepe sit assumenda consequatur. Dolorum molestias labore aliquid sequi modi dolor. Voluptatem cum odit libero qui aliquid eveniet."], ["created_at", "2015-03-01 22:21:00.285320"], ["updated_at", "2015-03-01 22:21:00.285320"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Est magnam sit autem reiciendis."], ["description", "Repellat accusantium dolorum velit. Molestiae laboriosam veniam expedita et aut. Fugiat voluptas et id animi provident."], ["created_at", "2015-03-01 22:21:00.287279"], ["updated_at", "2015-03-01 22:21:00.287279"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Suscipit culpa aut nihil dolores repudiandae autem quod odio."], ["description", "Qui officia consequatur maiores nisi. Sapiente ratione illum impedit cum. Optio voluptatibus qui cum deserunt nulla incidunt ut. Quia sit aliquam repellendus."], ["created_at", "2015-03-01 22:21:00.289292"], ["updated_at", "2015-03-01 22:21:00.289292"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Tempore fuga optio omnis."], ["description", "Non necessitatibus porro architecto aliquid et quibusdam voluptatem. Sunt illo quae ut eum eius. Et eveniet distinctio. Quaerat similique autem. Voluptates quisquam quibusdam at id iste neque."], ["created_at", "2015-03-01 22:21:00.291392"], ["updated_at", "2015-03-01 22:21:00.291392"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Laborum accusamus eaque dolor sed atque."], ["description", "Voluptate ipsa ea quis. Esse voluptatem quam animi. Esse modi cupiditate porro commodi repellat. Optio incidunt reprehenderit veniam tenetur odit suscipit in."], ["created_at", "2015-03-01 22:21:00.293475"], ["updated_at", "2015-03-01 22:21:00.293475"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Et tenetur veniam aut inventore beatae et officiis id."], ["description", "Deleniti ducimus facere aliquid. Sit consequatur et voluptate veniam nisi dolore quisquam. Ullam est et nostrum beatae sint aut commodi."], ["created_at", "2015-03-01 22:21:00.295428"], ["updated_at", "2015-03-01 22:21:00.295428"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ducimus quia repudiandae reprehenderit voluptatum."], ["description", "Non quis quae omnis dolorem incidunt modi. Vel quam sint amet aut modi dolore. Reiciendis sint eaque sint ut harum. Minus praesentium ipsa adipisci corporis iusto quas."], ["created_at", "2015-03-01 22:21:00.297500"], ["updated_at", "2015-03-01 22:21:00.297500"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 8], ["title", "Explicabo libero enim iusto eos amet quam iste voluptatum."], ["body", "Sed ut soluta quisquam nobis id. Consequatur voluptatem ut et distinctio laudantium. Vel nisi qui eveniet qui. Nostrum dolor rerum et. Quidem officiis architecto debitis."], ["created_at", "2015-03-01 22:21:00.317105"], ["updated_at", "2015-03-01 22:21:00.317105"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer, "rank" float) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar, "avatar" varchar) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "post_id" integer, "value" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150301221125')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012309')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012556')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150217012820')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218125814')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218195453')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150220135848')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220141217')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150224211350')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150225235349')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150228003115')[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer, "rank" float) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar, "avatar" varchar) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "post_id" integer, "value" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150301221125')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012309')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012556')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150217012820')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218125814')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218195453')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220135848')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150220141217')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150224211350')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150225235349')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150228003115')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jaydon@greenholtmueller.name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Alanna Lehner"], ["email", "jaydon@greenholtmueller.name"], ["encrypted_password", "$2a$10$ckltZOeNNDWC9H6eAK0R.OHzLesQrN2gbRahpxDKO0Qrw549F5rua"], ["confirmed_at", "2015-03-02 00:05:32.413287"], ["created_at", "2015-03-02 00:05:32.426073"], ["updated_at", "2015-03-02 00:05:32.426073"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jennyfer_bergnaum@graham.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Miss Johnson Wolf"], ["email", "jennyfer_bergnaum@graham.info"], ["encrypted_password", "$2a$10$6Icidbohfv7qstF/fD/cKeRKA9PZmwGVpde63ot/4FTBbB/oL0i0u"], ["confirmed_at", "2015-03-02 00:05:32.486591"], ["created_at", "2015-03-02 00:05:32.488378"], ["updated_at", "2015-03-02 00:05:32.488378"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'asha@wisoky.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dylan Mann"], ["email", "asha@wisoky.net"], ["encrypted_password", "$2a$10$IJEp5IIWHOTDsUbi2gip5eEiG0RCeCx2OJ7bB4caRvB8SPRq/Ce2O"], ["confirmed_at", "2015-03-02 00:05:32.546984"], ["created_at", "2015-03-02 00:05:32.548432"], ["updated_at", "2015-03-02 00:05:32.548432"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'zoila@corwinheller.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Ellen Feest"], ["email", "zoila@corwinheller.net"], ["encrypted_password", "$2a$10$MVq7/N/cCOFHhg1SghBXqeAHYmKCWaSerMN4L8FnneRrFDQMiMnj6"], ["confirmed_at", "2015-03-02 00:05:32.607364"], ["created_at", "2015-03-02 00:05:32.608863"], ["updated_at", "2015-03-02 00:05:32.608863"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ardella_tremblay@swaniawskifeil.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Justyn Wunsch IV"], ["email", "ardella_tremblay@swaniawskifeil.info"], ["encrypted_password", "$2a$10$HKehpzFbeaLx/yRdRAWKJuHHrJHth1CVcqvlycMXfHwLE6mUDsAmi"], ["confirmed_at", "2015-03-02 00:05:32.666943"], ["created_at", "2015-03-02 00:05:32.668348"], ["updated_at", "2015-03-02 00:05:32.668348"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sit architecto culpa assumenda aut et non."], ["description", "Tempora ut ut quos temporibus in. Qui modi in mollitia eveniet. Hic aut dolores quia quo et velit modi. Incidunt voluptatibus quo et et praesentium sunt qui."], ["created_at", "2015-03-02 00:05:32.715977"], ["updated_at", "2015-03-02 00:05:32.715977"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Velit vitae recusandae exercitationem animi officia."], ["description", "Aliquid vel ut aut culpa et saepe. Necessitatibus repudiandae facere dolore ab ut. Minima nobis non assumenda et. Voluptas magnam unde perferendis fuga maiores et. Id eaque magni expedita."], ["created_at", "2015-03-02 00:05:32.718481"], ["updated_at", "2015-03-02 00:05:32.718481"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Quas nesciunt a magni at assumenda tempore."], ["description", "Voluptatem est libero. Quo aliquam enim ducimus non sunt consequatur. Consequatur saepe voluptate consequatur cupiditate. Eveniet est et beatae laborum. Quos natus occaecati est voluptates ullam voluptas."], ["created_at", "2015-03-02 00:05:32.720365"], ["updated_at", "2015-03-02 00:05:32.720365"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Earum voluptas architecto omnis vitae consequatur sit minus."], ["description", "Atque necessitatibus illo dolores. Cum aliquam non labore esse ipsa. Aut explicabo excepturi sint aliquid est eligendi libero. Et qui quidem corrupti temporibus. Quia quia distinctio quis quia fugit."], ["created_at", "2015-03-02 00:05:32.722234"], ["updated_at", "2015-03-02 00:05:32.722234"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Qui accusantium est omnis voluptatem aut eum eligendi incidunt."], ["description", "Facilis et sint. Optio rem consequatur dolor autem eos repellat voluptates. Nesciunt sint aspernatur voluptas doloribus minima debitis sint. Id consequatur itaque culpa et dolorem ut voluptates."], ["created_at", "2015-03-02 00:05:32.724115"], ["updated_at", "2015-03-02 00:05:32.724115"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Qui tempora sed quas occaecati esse."], ["description", "Asperiores quia velit vero veniam dolorem voluptas. Quis id sed eius libero consequatur dolorem. Quos qui assumenda laborum. Et delectus quia libero officiis. Totam omnis et illo."], ["created_at", "2015-03-02 00:05:32.726016"], ["updated_at", "2015-03-02 00:05:32.726016"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Distinctio quisquam error voluptas."], ["description", "Consectetur velit voluptate eius placeat. Ad nemo exercitationem quasi culpa dolores corporis. Unde velit magnam aliquid dolorem rerum eligendi est. Ducimus ut accusamus esse iste consequuntur et dolorem. Dolore molestias in earum nemo non."], ["created_at", "2015-03-02 00:05:32.728219"], ["updated_at", "2015-03-02 00:05:32.728219"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Ullam fugit eos velit consequuntur iure qui."], ["description", "Et temporibus voluptatibus. Est ut aut quaerat vero unde occaecati. Quod ut officiis."], ["created_at", "2015-03-02 00:05:32.730103"], ["updated_at", "2015-03-02 00:05:32.730103"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Asperiores odit est ducimus velit."], ["description", "Incidunt ipsam esse. Ab hic quia eaque ratione. Id nostrum quo delectus iusto est. Ad doloremque rem libero nulla doloribus."], ["created_at", "2015-03-02 00:05:32.731922"], ["updated_at", "2015-03-02 00:05:32.731922"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Perspiciatis autem ut maiores debitis quaerat."], ["description", "Consectetur dolorem consequatur. Magni non quo accusamus. Architecto error asperiores animi dolore."], ["created_at", "2015-03-02 00:05:32.733745"], ["updated_at", "2015-03-02 00:05:32.733745"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pariatur est possimus saepe."], ["description", "Voluptatibus asperiores ducimus. Eum ea aperiam nobis. Nihil vel aspernatur. Nulla ratione unde est autem iste maxime nemo."], ["created_at", "2015-03-02 00:05:32.735596"], ["updated_at", "2015-03-02 00:05:32.735596"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Vel ea voluptas fugiat est."], ["description", "Distinctio et ea praesentium ipsam eaque. Dolor et ab enim. Consequuntur et dolorem officiis modi nobis possimus dolores. Illo enim necessitatibus assumenda et sed."], ["created_at", "2015-03-02 00:05:32.737890"], ["updated_at", "2015-03-02 00:05:32.737890"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Eos porro voluptatibus ut ipsum cum."], ["description", "Eaque aliquam qui maiores beatae. Qui fugit dolores. Laboriosam harum deserunt eum nemo minus."], ["created_at", "2015-03-02 00:05:32.739949"], ["updated_at", "2015-03-02 00:05:32.739949"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Odit adipisci sunt dolor perspiciatis a omnis."], ["description", "Saepe quo aliquam soluta rerum omnis sed. Eum unde suscipit laboriosam modi harum. Sint assumenda consequuntur omnis laborum et debitis dicta. Reprehenderit et quo pariatur."], ["created_at", "2015-03-02 00:05:32.741991"], ["updated_at", "2015-03-02 00:05:32.741991"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Saepe ut laboriosam sed voluptate placeat."], ["description", "Possimus eos et sed. Repudiandae adipisci placeat non officiis similique laudantium ab. Aut nobis tempore similique qui quia dicta occaecati. Aut cupiditate est vel inventore."], ["created_at", "2015-03-02 00:05:32.743993"], ["updated_at", "2015-03-02 00:05:32.743993"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 5], ["topic_id", 2], ["title", "Est quo non repudiandae ea."], ["body", "Est et aut. Exercitationem omnis amet doloribus. Voluptas dignissimos occaecati veritatis."], ["created_at", "2015-03-02 00:05:32.765441"], ["updated_at", "2015-03-02 00:05:32.765441"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer, "rank" float) 
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar, "avatar" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "post_id" integer, "value" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150301221125')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012309')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012556')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150217012820')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218125814')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218195453')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150220135848')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220141217')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150224211350')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150225235349')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150228003115')[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "topic_id" integer, "rank" float) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX "index_posts_on_topic_id" ON "posts" ("topic_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_topic_id' AND type='index'
+[0m
+  [1m[35m (3.7ms)[0m  CREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "public" boolean DEFAULT 't', "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime, "updated_at" datetime, "role" varchar, "avatar" varchar) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "post_id" integer, "value" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150301221125')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150209012309')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150209012556')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150217012820')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150218125814')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150218195453')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150220135848')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150220141217')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150224211350')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150225235349')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150228003115')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mabelle_kub@lindgren.net' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Evan Kub"], ["email", "mabelle_kub@lindgren.net"], ["encrypted_password", "$2a$10$ahqyvO6Q/uYTfQxrXX1Vpe/JL/8A4HEYkipigG/nFk5M/YCepNm.O"], ["confirmed_at", "2015-03-02 00:10:27.291785"], ["created_at", "2015-03-02 00:10:27.299404"], ["updated_at", "2015-03-02 00:10:27.299404"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'fredy_wunsch@schadenmitchell.name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Carli Jakubowski"], ["email", "fredy_wunsch@schadenmitchell.name"], ["encrypted_password", "$2a$10$uzA38Yp9wjvLDvWTpY3z1euQVQR06NThI.lZsqEsEQuyd/ZUY1je6"], ["confirmed_at", "2015-03-02 00:10:27.359292"], ["created_at", "2015-03-02 00:10:27.360905"], ["updated_at", "2015-03-02 00:10:27.360905"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'marques@nienowcasper.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Kelton Lynch DVM"], ["email", "marques@nienowcasper.com"], ["encrypted_password", "$2a$10$.NJr0kprvA.9uNzDInAAFOnHA8in1Etb/yxo7EPaBI3XYUHtBJsbe"], ["confirmed_at", "2015-03-02 00:10:27.424308"], ["created_at", "2015-03-02 00:10:27.425829"], ["updated_at", "2015-03-02 00:10:27.425829"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'eulah.hettinger@schaden.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Alvis Collier"], ["email", "eulah.hettinger@schaden.info"], ["encrypted_password", "$2a$10$V5Z7epkj1nGxZ.9wK1uIHehHxqcjIyhE8cYuOUlzNgU1qlYR3uvmi"], ["confirmed_at", "2015-03-02 00:10:27.484311"], ["created_at", "2015-03-02 00:10:27.485785"], ["updated_at", "2015-03-02 00:10:27.485785"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'elouise@franecki.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Timothy Greenholt"], ["email", "elouise@franecki.info"], ["encrypted_password", "$2a$10$rZ.E.ngKYJSzriuElk4jVORQUUaZFOjqTtziA72bni2fXPS1ZBW.a"], ["confirmed_at", "2015-03-02 00:10:27.545032"], ["created_at", "2015-03-02 00:10:27.547788"], ["updated_at", "2015-03-02 00:10:27.547788"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Consectetur aut est dolore vel nobis."], ["description", "Autem ad doloribus odit. Non eligendi est odit voluptatem a. Natus ducimus quia et in unde consectetur vel. Eum deserunt rerum asperiores magnam quas."], ["created_at", "2015-03-02 00:10:27.592654"], ["updated_at", "2015-03-02 00:10:27.592654"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Architecto voluptates optio ut sit sint quis esse."], ["description", "Perspiciatis sint rerum omnis quia iure. Nobis ea incidunt id illo recusandae. Ad ipsa quis et numquam provident. Aut aut corrupti perspiciatis dolore ratione optio odit. Dignissimos odit qui ea est omnis corrupti."], ["created_at", "2015-03-02 00:10:27.595324"], ["updated_at", "2015-03-02 00:10:27.595324"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Qui eum dolore rerum dignissimos consequatur."], ["description", "Aspernatur qui aut omnis enim quasi quisquam dolor. Non fugit aperiam. At omnis aut. Ea in in similique deserunt."], ["created_at", "2015-03-02 00:10:27.597347"], ["updated_at", "2015-03-02 00:10:27.597347"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Dolorem odio consequatur veniam."], ["description", "Nostrum nam voluptas vel quam dolorum qui molestiae. Et ullam quae vero optio aut. Possimus aspernatur delectus eum."], ["created_at", "2015-03-02 00:10:27.599657"], ["updated_at", "2015-03-02 00:10:27.599657"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Omnis numquam ducimus voluptas natus aliquid qui."], ["description", "Et ratione molestias nam. Labore ducimus velit voluptas ullam eaque. Voluptatem consequuntur occaecati magnam."], ["created_at", "2015-03-02 00:10:27.601672"], ["updated_at", "2015-03-02 00:10:27.601672"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Quia magnam consequatur ipsam fugit."], ["description", "A laborum quia vero error nostrum ab eum. Ducimus quod ratione asperiores atque distinctio laudantium nulla. Nam reiciendis sed exercitationem saepe ea sed. Temporibus quis libero aut et est qui consequatur."], ["created_at", "2015-03-02 00:10:27.603759"], ["updated_at", "2015-03-02 00:10:27.603759"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Eveniet natus et possimus earum dolor voluptatem."], ["description", "Itaque ut culpa et. Facere qui corrupti ea reprehenderit in veniam dolores. Dignissimos dolores nobis incidunt dolores. Culpa animi et saepe iste. Non sint temporibus ipsam sint nemo molestiae sapiente."], ["created_at", "2015-03-02 00:10:27.605759"], ["updated_at", "2015-03-02 00:10:27.605759"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Consequatur odit vel laudantium."], ["description", "Iste occaecati blanditiis autem dolorem rerum. Hic totam sint deleniti quo quod a. Sed similique labore unde. Pariatur et ut. Placeat sit consequatur eaque occaecati voluptatem consequatur."], ["created_at", "2015-03-02 00:10:27.607794"], ["updated_at", "2015-03-02 00:10:27.607794"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Autem suscipit aut ut laudantium quod enim."], ["description", "Accusamus perspiciatis odio explicabo odit delectus. Harum ut nisi dolores ipsum nesciunt. Voluptates ut eos perferendis aut."], ["created_at", "2015-03-02 00:10:27.609720"], ["updated_at", "2015-03-02 00:10:27.609720"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Quia et et debitis."], ["description", "Ut enim molestiae tempore minima voluptas ut. Quae at quisquam sequi autem. Est repudiandae dolore sit."], ["created_at", "2015-03-02 00:10:27.611634"], ["updated_at", "2015-03-02 00:10:27.611634"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Itaque illo sint rerum at alias dolor sit ipsam."], ["description", "Quaerat nobis explicabo libero quos. Ut odio dolores autem consequatur neque. Dolorem vel cum iusto ab expedita."], ["created_at", "2015-03-02 00:10:27.613566"], ["updated_at", "2015-03-02 00:10:27.613566"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Sequi praesentium ut omnis et hic modi."], ["description", "Libero doloremque rerum ducimus. Magni officia consequatur rerum. Molestiae omnis voluptatum dolores vel ea ipsam commodi. Natus exercitationem et."], ["created_at", "2015-03-02 00:10:27.615597"], ["updated_at", "2015-03-02 00:10:27.615597"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Et commodi quo quasi praesentium."], ["description", "In sit ea id vero. Magni iste in atque laudantium praesentium sequi. Placeat corporis doloribus nemo non est aut. Qui eius cupiditate illum."], ["created_at", "2015-03-02 00:10:27.617805"], ["updated_at", "2015-03-02 00:10:27.617805"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Consequatur ut id cupiditate."], ["description", "Nihil laudantium necessitatibus quae saepe quod numquam accusantium. Et magnam sit exercitationem iste. Exercitationem cum qui esse corporis molestiae repudiandae quos. Sint expedita voluptatem deleniti nulla qui nesciunt. Rerum dolor inventore iure molestias dolores."], ["created_at", "2015-03-02 00:10:27.619895"], ["updated_at", "2015-03-02 00:10:27.619895"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Laboriosam ab labore eaque quam tempora facilis corrupti."], ["description", "Eius autem vero natus. Esse culpa natus corporis fugit libero. Dolores aut rerum cupiditate voluptatem. Exercitationem reprehenderit iste ut harum enim. Expedita nihil et sapiente qui."], ["created_at", "2015-03-02 00:10:27.621910"], ["updated_at", "2015-03-02 00:10:27.621910"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 4], ["topic_id", 10], ["title", "Enim culpa ad quis id ut."], ["body", "Eum maiores eveniet voluptas repellat. Impedit esse accusamus libero. Corporis perspiciatis omnis. Quia in blanditiis."], ["created_at", "2015-03-02 00:10:27.643084"], ["updated_at", "2015-03-02 00:10:27.643084"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tyrel@ko.org' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dena Gaylord"], ["email", "tyrel@ko.org"], ["encrypted_password", "$2a$10$F.3k7vgTRY4yXipbYFwcBuCHkvphP7CHZgqSaPIUEfdv4td9O0n6i"], ["confirmed_at", "2015-03-02 00:10:48.123125"], ["created_at", "2015-03-02 00:10:48.132338"], ["updated_at", "2015-03-02 00:10:48.132338"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'krystel@hand.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Xzavier Krajcik I"], ["email", "krystel@hand.name"], ["encrypted_password", "$2a$10$jbhiU808QkiAFJ5DcAuTZuUxklzWov2mMcaBqnQFfB72/Oo6wBJmW"], ["confirmed_at", "2015-03-02 00:10:48.193941"], ["created_at", "2015-03-02 00:10:48.195552"], ["updated_at", "2015-03-02 00:10:48.195552"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'harmon_romaguera@heel.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Miss Salma Bernier"], ["email", "harmon_romaguera@heel.net"], ["encrypted_password", "$2a$10$9jSY3iY4NTN.YllT8s3GN.jEEMvPZYjAWDbiaX/DE9NGz5MK/Zqse"], ["confirmed_at", "2015-03-02 00:10:48.253444"], ["created_at", "2015-03-02 00:10:48.254898"], ["updated_at", "2015-03-02 00:10:48.254898"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jenifer_ferry@kertzmann.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dr. Jeanne Lindgren"], ["email", "jenifer_ferry@kertzmann.com"], ["encrypted_password", "$2a$10$EEhLd1sd88hNYtPIMOwqLOLAfIsRxGey391bhmBHzBTe8bsLEDLyK"], ["confirmed_at", "2015-03-02 00:10:48.313544"], ["created_at", "2015-03-02 00:10:48.315046"], ["updated_at", "2015-03-02 00:10:48.315046"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tillman_powlowski@torphy.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Giles Green"], ["email", "tillman_powlowski@torphy.net"], ["encrypted_password", "$2a$10$vkn5xJ28zSlmy2bXaAlSU.cUOLkp7SfVO/PXnO0F6M5XVsh7GUaNG"], ["confirmed_at", "2015-03-02 00:10:48.373070"], ["created_at", "2015-03-02 00:10:48.374468"], ["updated_at", "2015-03-02 00:10:48.374468"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Suscipit rerum voluptates aliquid enim est ea."], ["description", "Optio explicabo id rerum molestiae vel rerum. Facilis fuga in. Mollitia voluptatem minima et maxime exercitationem."], ["created_at", "2015-03-02 00:10:48.384935"], ["updated_at", "2015-03-02 00:10:48.384935"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Hic aliquid veniam ea asperiores omnis."], ["description", "Omnis veritatis eum harum ipsum est. Impedit delectus sint et sit. Laudantium provident dolores praesentium voluptatum."], ["created_at", "2015-03-02 00:10:48.389704"], ["updated_at", "2015-03-02 00:10:48.389704"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Perspiciatis quam blanditiis dignissimos."], ["description", "Asperiores autem aliquam occaecati nulla. Harum sint reiciendis vel dolores quisquam qui. Maiores voluptatum molestias quam et quaerat nam rerum. Et reprehenderit sit. Sint quis nam et magni."], ["created_at", "2015-03-02 00:10:48.392820"], ["updated_at", "2015-03-02 00:10:48.392820"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Itaque modi assumenda qui vitae inventore a mollitia."], ["description", "Ex molestiae iste sit animi minus. Rerum labore sunt molestiae alias modi ea et. Ut ex excepturi porro ea dolorem voluptas. Quis consequuntur culpa ut beatae a quod ut. Accusantium ipsa sunt nisi."], ["created_at", "2015-03-02 00:10:48.395835"], ["updated_at", "2015-03-02 00:10:48.395835"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Quis dolore cum molestias dolor aspernatur asperiores eum."], ["description", "Modi reprehenderit est accusantium quas autem dolorum ipsum. Dolores doloribus reprehenderit. Sit laborum aliquid et nostrum."], ["created_at", "2015-03-02 00:10:48.398169"], ["updated_at", "2015-03-02 00:10:48.398169"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Dolores voluptas sit sit et quam ipsam."], ["description", "Totam vel consequatur et adipisci quo. Corrupti error velit accusantium. Placeat ratione odio ex autem doloremque excepturi sequi."], ["created_at", "2015-03-02 00:10:48.400987"], ["updated_at", "2015-03-02 00:10:48.400987"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Consequuntur aspernatur magni omnis expedita provident quae sed tempora."], ["description", "Ut reiciendis ut praesentium natus suscipit velit ratione. Iste sunt voluptate libero. Eos eum voluptatum nihil illum laborum omnis. Quibusdam est rerum nihil culpa. Quis dolor itaque est iure voluptatem quo veritatis."], ["created_at", "2015-03-02 00:10:48.440319"], ["updated_at", "2015-03-02 00:10:48.440319"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Aliquid sit veniam soluta reiciendis deserunt voluptas in."], ["description", "Nihil consectetur odio ipsum. Quibusdam distinctio maiores a repellat nihil dolorem. Velit odio et."], ["created_at", "2015-03-02 00:10:48.442604"], ["updated_at", "2015-03-02 00:10:48.442604"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Labore error sint qui perspiciatis distinctio quos aliquid aut."], ["description", "Corrupti ratione velit illo et omnis architecto. Laboriosam nostrum explicabo nesciunt deleniti sit. Fuga hic iste ut libero."], ["created_at", "2015-03-02 00:10:48.444436"], ["updated_at", "2015-03-02 00:10:48.444436"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Quas quis itaque quo et dolores molestiae."], ["description", "Sit optio tempore adipisci quis et quod. Unde odit nemo totam occaecati ullam. Voluptatibus impedit nemo non tempora ea. Perspiciatis voluptas eum amet."], ["created_at", "2015-03-02 00:10:48.446437"], ["updated_at", "2015-03-02 00:10:48.446437"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Eveniet in ad consequuntur."], ["description", "Ad accusamus commodi itaque ratione perferendis aut. Possimus impedit exercitationem ut voluptas minus porro est. Tenetur voluptatem consequatur magnam non eum maiores odit. Molestiae excepturi omnis architecto magnam vitae."], ["created_at", "2015-03-02 00:10:48.448486"], ["updated_at", "2015-03-02 00:10:48.448486"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Ipsa inventore dolore atque."], ["description", "Maxime quia facere dolores. Optio est ipsam ea. Esse quis porro et. Molestias qui sit illum accusantium. Aliquid ut voluptas."], ["created_at", "2015-03-02 00:10:48.450372"], ["updated_at", "2015-03-02 00:10:48.450372"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Omnis quia porro maxime iusto adipisci fugiat animi delectus."], ["description", "Non tempore doloribus distinctio aut. Nihil ex quia ut neque illo possimus deserunt. Dicta et aut delectus veniam voluptates."], ["created_at", "2015-03-02 00:10:48.452230"], ["updated_at", "2015-03-02 00:10:48.452230"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Molestiae qui ut voluptatem accusamus illum iste vero."], ["description", "Ut voluptatem consequatur. Occaecati sed natus tenetur ut. Omnis earum suscipit quo. Laborum iusto exercitationem. Voluptatem voluptate recusandae dolores."], ["created_at", "2015-03-02 00:10:48.454262"], ["updated_at", "2015-03-02 00:10:48.454262"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "topics" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Blanditiis quia eum quibusdam."], ["description", "Iure officia aut quos ab tenetur. In assumenda quae quis. Quas recusandae laborum est corporis."], ["created_at", "2015-03-02 00:10:48.456161"], ["updated_at", "2015-03-02 00:10:48.456161"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("user_id", "topic_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 10], ["topic_id", 2], ["title", "Quo exercitationem minus dolores voluptas."], ["body", "Nemo repellat non qui perspiciatis ut laborum consequuntur. Dolorem quia illum magni et. Eligendi fuga et dolorem commodi placeat. Sed aut id similique soluta esse delectus. Consectetur deleniti reprehenderit."], ["created_at", "2015-03-02 00:10:48.475154"], ["updated_at", "2015-03-02 00:10:48.475154"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m

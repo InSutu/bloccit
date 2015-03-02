@@ -11,6 +11,16 @@ describe Vote do
       v.up_vote?.should be_false
     end
   end
+end
+
+  describe 'after_save' do
+       it "calls `Post#update_rank` after save" do
+         post = associated_post
+         vote = Vote.new(value: 1, post: post)
+         expect(post).to receive(:update_rank)
+          vote.save
+       end
+     end
 
   describe "#down_vote?" do
     it "returns true for a down vote" do
@@ -32,4 +42,4 @@ describe Vote do
     end
   end
 
-end
+
