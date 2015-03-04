@@ -1,4 +1,4 @@
-rerequire 'rails_helper'
+require 'rails_helper'
  
  describe VotesController do
  

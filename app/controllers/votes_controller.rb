@@ -3,8 +3,8 @@ class VotesController < ApplicationController
 before_filter :setup #Always run this method first
 
   def setup
-    @topic = Topic.find(params[:topic_id])
-    @post = @topics.posts.find(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @topic = @post.topic
     @vote = @post.votes.where(user_id: current_user.id).first
   end
 
