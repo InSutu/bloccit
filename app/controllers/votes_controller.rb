@@ -2,13 +2,23 @@ class VotesController < ApplicationController
 
 before_filter :setup #Always run this method first
 
+  def up_vote
+    update_vote(1)
+    redirect_to :back
+  end
+
+  def down_vote
+    update_vote(-1)
+    redirect_to :back
+  end
+  
+
+  private
   def setup
     @post = Post.find(params[:post_id])
     @topic = @post.topic
     @vote = @post.votes.where(user_id: current_user.id).first
   end
-
-
 
   def update_vote(new_value)
     if @vote 
@@ -20,16 +30,6 @@ before_filter :setup #Always run this method first
       authorize @vote, :create? #pundit syntax to check roles
       @vote.save
     end
-  end
-
-  def up_vote
-    update_vote(1)
-    redirect_to :back
-  end
-
-  def down_vote
-    update_vote(-1)
-    redirect_to :back
-  end
+  end  
 
 end
