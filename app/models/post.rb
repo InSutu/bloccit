@@ -24,7 +24,8 @@ class Post < ActiveRecord::Base
   end
 
   def points
-    self.votes.sum(:value).to_i
+    [up_votes, down_votes*-1].sum
+    #self.votes.sum(:value).to_i
   end
 
   def update_rank
