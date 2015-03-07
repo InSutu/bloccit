@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #get 'topics/edit'
 
   devise_for :users
-  resources :users, only: [:update, :show]
+  resources :users, only: [:update, :show, :index]
   #get 'posts/index' Remove per CRUD checkopoint
   #get 'posts/show'
   #get 'posts/new'
@@ -19,12 +19,13 @@ Rails.application.routes.draw do
   #resources :topics
   # Nesting comments for Comments checkpoint:  https://github.com/Bloc/rails-tutorial/blob/master/answers.md
   resources :topics do
-    resources :posts, except: [:index] do
+    #resources :posts, except: [:index] do
+    resources :posts, except: [:index], controller: 'topics/posts' do
       resources :comments, only: [:create, :destroy]
     end
   end
 
-  resources :posts, only: [] do
+   resources :posts, only: [:index] do
     resources :comments, only: [:create, :destroy]
          resources :favorites, only: [:create, :destroy]
 
