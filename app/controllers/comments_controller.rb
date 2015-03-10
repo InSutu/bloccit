@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 def create
     @post = Post.find(params[:post_id])
     @comments = @post.comments
-
+    @topic = @post.topic
     @comment = current_user.comments.build( comment_params )
     @comment.post = @post
     @new_comment = Comment.new
@@ -17,7 +17,7 @@ def create
     end
 
     respond_to do |format|
-      format.html
+      format.html {redirect_to [@topic, @post]}
       format.js
     end
   end
@@ -46,8 +46,8 @@ def create
 
 
    def destroy
-     @topic = Topic.find(params[:topic_id])
-     @post = @topic.posts.find(params[:post_id])
+     @post = Post.find(params[:post_id])
+     @topic = @post.topic
      @comment = @post.comments.find(params[:id])
  
      authorize @comment
@@ -67,7 +67,7 @@ def create
    
 
    private
-   def comment_param
+   def comment_params
     params.require(:comment).permit(:body)
   end
 
